@@ -33,13 +33,39 @@
           <div class="col-md-2 ml-auto">
             <div class="dropdown create float-right">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Roles
+                Switch Roles
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#" class="dropdown-item">Add Page</a></li>
-                <li><a href="#" class="dropdown-item">Add Post</a></li>
-                <li><a href="#" class="dropdown-item">Add User</a></li>
+                  {{-- @if (Auth::user()->role == 1)
+                  <li><a href="#" class="dropdown-item">Switch to HR</a></li>
+                  @elseif(Auth::user()->role == 1)
+                  <li><a href="#" class="dropdown-item">Switch to HOD</a></li>
+                  @endif --}}
+                  @switch(Auth::user()->role)
+                      @case(1)
+                      <li><a href="#" class="dropdown-item">Switch to HR</a></li>
+                          @break
+                      @case(2)
+                      <li><a href="#" class="dropdown-item">Switch to HOD</a></li>
+                          @break
+                      @case(3)
+                      <li><a href="#" class="dropdown-item">Switch to DEAN</a></li>
+                          @break
+                      @case(4)
+                      <li><a href="#" class="dropdown-item">Switch to US</a></li>
+                          @break
+                      @case(5)
+                      <li><a href="#" class="dropdown-item">Switch to VS</a></li>
+                          @break
+                      @default
+
+                  @endswitch
+
+
+                {{-- <li><a href="#" class="dropdown-item">Switch to DEAN</a></li>
+                <li><a href="#" class="dropdown-item">Switch to US</a></li>
+                <li><a href="#" class="dropdown-item">Switch to VC</a></li> --}}
               </ul>
             </div>
           </div>

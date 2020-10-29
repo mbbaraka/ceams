@@ -59,17 +59,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Study::class);
     }
-    
+
     public function courses()
     {
         return $this->hasMany(Course::class);
     }
-    
+
     public function skills()
     {
         return $this->hasMany(Skill::class);
     }
-    
+
     public function workshops()
     {
         return $this->hasMany(Workshops::class);
@@ -108,6 +108,11 @@ class User extends Authenticatable
     public function constraintAnalysis()
     {
         return $this->hasMany(ConstraintAnalysis::class);
+    }
+
+    public function roles()
+    {
+        return $this->hasMany('App\Role', 'role', 'id');
     }
 
 }

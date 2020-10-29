@@ -12,8 +12,8 @@ Home
           <div class="col-md-8">
             <!-- Website Overview -->
             <div class="card mb-3">
-              <div class="card-header main-color-bg">
-                <h3 class="card-title">Website Overview</h3>
+              <div class="card-header">
+                <h3 class="card-title">Overview</h3>
               </div>
               <div class="card-body">
                 <div class="row">
@@ -47,7 +47,7 @@ Home
 
               <!-- Latest Users -->
             <div class="card ">
-              <div class="card-header main-color-bg">
+              <div class="card-header">
                 <h3 class="card-title">Latest Users</h3>
               </div>
               <div class="card-body">
