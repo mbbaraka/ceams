@@ -30,7 +30,7 @@
     <!-- Modals -->
 
     <!-- Add Page -->
-    
+
 
   <script>
      CKEDITOR.replace( 'editor1' );
