@@ -5,7 +5,7 @@ Login
 @endsection
 @section('content')
 <!-- Page Content -->
-    <div id="page-content-wrapper">       
+    <div id="page-content-wrapper">
          <div class="row justify-content-center d-block d-flex align-items-center" style="padding-top: 6%;">
            <div class="col-md-10 col-lg-10">
              <div style="border-radius: 40px 40px 0px 0px; box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 40px 0 rgba(0, 0, 0, 0.19);" class="pt-2 pr-2 pl-2 bg-custom pb-1">
