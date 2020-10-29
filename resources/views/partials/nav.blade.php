@@ -1,5 +1,7 @@
-    <nav class="navbar bg-dark navbar-expand-lg sticky-top">
+    <nav class="navbar bg-custom text-nav-custom navbar-expand-lg sticky-top pt-3 pb-3">
+
       <div class="container">
+
       <a class="navbar-brand text-light" href="{{url('/')}}">CEAMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="fa fa-bars text-light"></span>
@@ -22,9 +24,12 @@
           </ul>
         </div>
       </div>
+
     </nav>
 
-    <header>
+    <header >
+        <div class="bg-dark p-2">
+        </div>
       <div class="container">
         <hr>
       </div>

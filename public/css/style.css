@@ -90,12 +90,12 @@ body{
 
 /* Breadcrumb */
 .breadcrumb{
-  background:#cccccc;
-  color:#333333;
+  /* background:#cccccc; */
+  color:#262261;
 }
 
 .breadcrumb a{
-  color:#333333;
+  color:#262261;
 }
 
 /* Progress Bars */
@@ -142,10 +142,10 @@ body{
   border-color: #262261;
 }
 .custom-container{
-  width: 98%; 
-  padding-right: 15px; 
-  padding-left: 15px; 
-  margin-right: auto; 
+  width: 98%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
   margin-left: auto;
 }
 .login-title{
@@ -156,14 +156,27 @@ body{
 .text-custom{
   color: #0068f0!important;
 }
+.text-white{
+    color: #fff!important;
+  }
 .navbar-custom{
   color: #fff!important;
 }
 .bg-custom{
   background-color: #0068f0!important;
+
 }
 .border-custom{
   border-color: #0068f0!important;
   border: 1px solid;
-  
+
+}
+
+.badge-custom{
+    background-color: #0068f0!important;
+    color: #fff!important;
+
+  }
+.text-nav-custom{
+    font-size: 16px;
 }

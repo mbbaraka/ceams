@@ -7,6 +7,7 @@
                     {{-- <span>&nbsp; >> &nbsp;</span> --}}
                     @for($i = 0; $i <= count(Request::segments()); $i++)
                     <li>
+
                         <a href="">{{Request::segment($i)}}</a>
                         @if($i < count(Request::segments()) & $i > 0)
                             {!!'<span>&nbsp; >> &nbsp;</span>'!!}
@@ -18,11 +19,11 @@
               <div class="col-md-2">
                 <div class="col-md-2 ml-auto">
                     <div class="dropdown create float-right">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <button class="btn border-custom btn-light text-custom dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Switch Roles
                         <span class="caret"></span>
                       </button>
-                      <ul class="dropdown-menu drop-left" aria-labelledby="dropdownMenu1">
+                      <ul class="dropdown-menu border-custom text-custom dropdown-menu-right" aria-labelledby="dropdownMenu1">
 
                           @switch(Auth::user()->role)
                               @case(1)

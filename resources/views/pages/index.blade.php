@@ -12,17 +12,17 @@ Home
           <div class="col-md-8">
             <!-- Website Overview -->
             <div class="card mb-3">
-              <div class="card-header">
-                <h3 class="card-title">Overview</h3>
+              <div class="card-header border-custom pt-1 pb-1">
+                <h3 class="card-title text-custom">Overview</h3>
               </div>
-              <div class="card-body">
+              <div class="card-body border-custom">
                 <div class="row">
                   <div class="col-md-3">
                     <div class="well dash-box">
-                      <h2><span class="fa fa-users" aria-hidden="true"></span> 203</h2>
-                      <h4>Users</h4>
+                      <h2><span class="fa fa-bell" aria-hidden="true"></span> 12</h2>
+                      <h4>Notifications</h4>
                     </div>
-                    </div>
+                  </div>
                     <div class="col-md-3">
                       <div class="well dash-box">
                         <h2><span class="fa fa-list-alt" aria-hidden="true"></span> 12</h2>
@@ -46,11 +46,11 @@ Home
             </div>
 
               <!-- Latest Users -->
-            <div class="card ">
-              <div class="card-header">
-                <h3 class="card-title">Latest Users</h3>
+            <div class="card">
+              <div class="card-header border-custom pt-1 pb-1">
+                <h3 class="card-title text-custom">Latest Users</h3>
               </div>
-              <div class="card-body">
+              <div class="card-body border-custom">
                 <table class="table table-striped table-hover">
                     <tr>
                       <th>Name</th>
