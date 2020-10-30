@@ -19,8 +19,8 @@
               <div class="col-md-2">
                 <div class="col-md-2 ml-auto">
                     <div class="dropdown create float-right">
-                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
-                        Switch to HR
+                      <a href="{{ url('/') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
+                        Switch Back
                         <span class="caret"></span>
                       </a>
                       {{-- <ul class="dropdown-menu border-custom text-custom dropdown-menu-right" aria-labelledby="dropdownMenu1">

@@ -24,7 +24,7 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], function () {
 	Route::get('/', 'HomeController@index')->name('index');
     Route::resource('studies', 'StudyController', ['except' => 'create', 'edit', 'show']);
     Route::resource('courses', 'CourseController', ['except' => 'create', 'edit', 'show']);
@@ -40,8 +40,24 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::resource('particulars', 'ParticularsController');
     // Route::resource('pages', 'PageController');
     // Route::resource('galleries', 'GalleryController');
-    
+
+
+
 });
+
+
+//Hr routes
+Route::group(['prefix' => '/hr', 'middleware' => 'auth', 'namespace' => 'Hr'], function (){
+    Route::get('/', 'HomeController@index')->name('hr.index');
+    Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
+    Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
+    Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
+    Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
+    // Route::get('/', 'HomeController@index')->name('hr.index');
+});
+
+
+
 
 //Achievements routes
 //Route::get('/achievements/studies', 'AchievementsController@studies')->name('studies');
