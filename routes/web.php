@@ -55,6 +55,12 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => '
     Route::post('/staffs/create', 'StaffController@store')->name('staff-store');
     Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
+    Route::get('/staff/roles', 'PageController@roles')->name('hr.roles');
+    Route::post('/roles/new', 'StaffController@roleStore')->name('hr.roles.new');
+    Route::get('/roles', 'StaffController@roles')->name('hr.roles.create');
+    Route::post('/roles/{id}', 'StaffController@deleteRole')->name('hr.roles.delete');
+    Route::get('/roles/assign', 'StaffController@assignRole')->name('hr.roles.assign');
+    Route::post('/roles/assign/store/{id}', 'StaffController@assignStoreRole')->name('hr.store.assign');
     // Route::get('/', 'HomeController@index')->name('hr.index');
 });
 

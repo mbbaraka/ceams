@@ -10,41 +10,39 @@ Home
       <div class="col-md-4">
         <div class="list-group shadow">
           <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="fa fa-gears" aria-hidden="true"></span> Manage Staffs
+            <span class="fa fa-gears" aria-hidden="true"></span> Staff Roles
           </a>
-          <a href="{{ route('hr.staffs') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List </a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs </a>
-          <a href="{{ route('hr.staffs.create') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> New Staff </a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Staff Roles </a>
+          <a href="{{ route('hr.roles.create') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Roles </a>
+          <a href="{{ route('hr.roles.assign') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Assign Role </a>
         </div>
       </div>
       <div class="col-md-8">
           <!-- Latest Users -->
         <div class="card shadow">
           <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Staffs List</h3>
+            <h3 class="card-title text-custom">Staff Roles</h3>
           </div>
           <div class="card-body border-custom">
             <table class="table table-striped table-hover">
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Title</th>
                   <th>Department</th>
+                  <th>Role</th>
                   <th>Action</th>
                 </tr>
-                @foreach ($staffs as $key => $staff)
+                @foreach ($roles as $key => $role)
                 <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $staff->name }}</td>
-                    <td>{{ $staff->job_title }}</td>
-                    <td>{{ $staff->department }}</td>
+                    <td>{{ $role->department }}</td>
+                    <td>{{ $role->name }}</td>
+                    <td>{{ $role->role }}</td>
                     <td>
                         <div class="btn-group" role="group">
                             <a href="#"><button title="View Profile" class="btn btn-light"><span class="fa fa-eye text-dark"></span></button></a>
-                            <a href="#modal{{$staff->staff_id}}" title="Edit" class="btn btn-light" data-toggle="modal" data-target="#modal{{$staff->zstaff_id}}"><span class="fa fa-edit text-primary"></span></a>
+                            <a href="#modal{{$role->staff_id}}" title="De-assign" class="btn btn-light" data-toggle="modal" data-target="#modal{{$role->staff_id}}"><span class="fa fa-edit text-primary"></span></a>
 
-                            {!! Form::open(['route' => ['courses.destroy', $staff->staff_id], 'method' => 'delete', 'style' => 'display:inline']) !!}
+                            {!! Form::open(['route' => ['courses.destroy', $role->staff_id], 'method' => 'delete', 'style' => 'display:inline']) !!}
                               <button title="Delete" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-light"><span class="fa fa-trash text-danger"></span></button>
                             {!! Form::close() !!}
                         </div>
@@ -53,7 +51,7 @@ Home
                 @endforeach
 
               </table>
-              {{ $staffs->links() }}
+              {{ $roles->links() }}
           </div>
         </div>
       </div>

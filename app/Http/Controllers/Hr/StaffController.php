@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use App\User;
+use App\Role;
 use Str;
 use Alert;
 use Illuminate\Support\Facades\Hash;
@@ -95,4 +96,59 @@ class StaffController extends Controller
         }
     }
 
+
+    public function roles()
+    {
+        $roles = Role::paginate(5);
+        return view('hr.pages.roles.create', compact('roles'));
+    }
+
+    public function roleStore(Request $request)
+    {
+        $this->validate($request,
+        [
+            'role' => 'required'
+        ]
+        );
+
+        $role = new Role();
+        $role->role = $request->role;
+        $save = $role->save();
+
+        if($save)
+        {
+            Alert::success('Success', 'Role created successfully');
+            return redirect()->back();
+        }
+    }
+
+    public function deleteRole($id)
+    {
+        $role = Role::findOrFail($id);
+        $delete =$role->delete();
+        if($delete)
+        {
+            Alert::success('Success', 'Role deleted successfully!');
+            return redirect()->back();
+        }
+    }
+
+    public function assignRole()
+    {
+        $staffs = User::where('role', '0')->paginate(5);
+        $roles = Role::get();
+        return view('hr.pages.roles.assign', compact('staffs', 'roles'));
+    }
+
+    public function assignStoreRole(Request $request, $id)
+    {
+        $assign = User::findOrFail($id);
+        $assign->role = $request->role;
+        $save = $assign->save();
+        if($save){
+            Alert::success('Done', 'Successfully assigned role to '.$assign->name);
+            return redirect()->back();
+        }
+
+    }
 }

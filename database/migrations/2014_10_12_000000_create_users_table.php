@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('terms_of_service')->nullable();
             $table->enum('is_appraiser', ['1','0']);
             $table->enum('appraiser_status', ['1','0']);
-            $table->enum('role', ['2','1','0']);
+            $table->string('role');
             $table->enum('status', ['1','0']);
             $table->rememberToken();
             $table->timestamps();
