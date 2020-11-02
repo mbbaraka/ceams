@@ -33,17 +33,6 @@ Register
                                                    </div>
                        <form method="POST" action="{{ route('register') }}">
                          @csrf
-                         <div class="input-group mb-3">
-                           <div class="input-group-prepend">
-                             <span class="input-group-text bg-primary" id="basic-addon1"><i class="fas fa-user text-light"></i></span>
-                           </div>
-                           <input type="email" placeholder="Staff ID" class="form-control @error('staff_id') is-invalid @enderror" name="staff_id" value="{{ old('email') }}" placeholder="Email Address" aria-label="Email" required aria-describedby="basic-addon1">
-                           @error('staff_id')
-                               <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                               </span>
-                           @enderror
-                         </div>
                          <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Staff ID') }}</label>
 
