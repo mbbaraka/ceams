@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'Mark Bright Baraka',
             'email' => 'mark@gmail.com',
             'password' => Hash::make('helloworld'),
-            'role' => '1'
+            'role' => '1',
         ]);
     }
 }
