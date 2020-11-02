@@ -180,3 +180,9 @@ body{
 .text-nav-custom{
     font-size: 16px;
 }
+
+
+/* for div shadow */
+.shadow {
+    box-shadow: 15px 15px 10px #0068f0;
+}

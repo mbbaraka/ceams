@@ -10,12 +10,12 @@ Home
       <div class="col-md-4">
         <div class="list-group">
           <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Staffs
+            <span class="fa fa-gears" aria-hidden="true"></span> Manage Staffs
           </a>
-          <a href="{{ route('hr.staffs') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List <span class="badge">12</span></a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs <span class="badge">33</span></a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Departments <span class="badge">33</span></a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Something else <span class="badge">33</span></a>
+          <a href="{{ route('hr.staffs') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List </a>
+          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs </a>
+          <a href="{{ route('hr.staffs.create') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> New Staff </a>
+          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Something else </a>
         </div>
       </div>
       <div class="col-md-8">

@@ -47,16 +47,26 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
 
 
 //Hr routes
-Route::group(['prefix' => '/hr', 'middleware' => 'auth', 'namespace' => 'Hr'], function (){
+Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => 'Hr'], function (){
     Route::get('/', 'HomeController@index')->name('hr.index');
     Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
     Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
+    Route::get('/staffs/new', 'StaffController@createStaff')->name('hr.staffs.create');
+    Route::post('/staffs/new', 'StaffController@storeStaff')->name('hr.staff.store');
     Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
     // Route::get('/', 'HomeController@index')->name('hr.index');
 });
 
-
+//Appraiser routes
+Route::group(['prefix' => '/appraiser', 'middleware' => 'can:isAppraiser, 1', 'namespace' => 'Appraiser'], function (){
+    Route::get('/', 'HomeController@index')->name('appraiser.index');
+    // Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
+    // Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
+    // Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
+    // Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
+    // Route::get('/', 'HomeController@index')->name('hr.index');
+});
 
 
 //Achievements routes

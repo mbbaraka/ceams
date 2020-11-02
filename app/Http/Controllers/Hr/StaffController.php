@@ -27,6 +27,11 @@ class StaffController extends Controller
         //
     }
 
+    public function createStaff()
+    {
+        return view('hr.pages.staffs.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -34,6 +39,11 @@ class StaffController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    {
+        //
+    }
+
+    public function storeStaff(Request $request)
     {
         //
     }

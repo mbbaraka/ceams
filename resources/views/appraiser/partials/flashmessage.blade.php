@@ -1,4 +1,4 @@
-<div class="container shadow">
+<div class="container">
 	<div class="row">
 	    <div class="col">
 	        @if(Session::has('message'))

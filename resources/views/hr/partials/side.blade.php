@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 shadow">
     <div class="list-group">
       <a href="index.html" class="list-group-item active main-color-bg">
         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Staff Achievements

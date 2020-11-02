@@ -9,12 +9,12 @@ Home
     <div class="row">
       <div class="col-md-4">
         <div class="list-group">
-          <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Appraisers
+          <a href="#" class="list-group-item active main-color-bg">
+            <span class="fa fa-gear" aria-hidden="true"></span> Manage Appraisers
           </a>
-          <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> List <span class="badge">12</span></a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> On-Going <span class="badge">33</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Abandoned <span class="badge">203</span></a>
+          <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> New Appraiser <span class="badge">12</span></a>
+          <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Appraiser List <span class="badge">33</span></a>
+          <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Something else <span class="badge">203</span></a>
         </div>
       </div>
       <div class="col-md-8">

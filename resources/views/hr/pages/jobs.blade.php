@@ -8,7 +8,7 @@ Home
 <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="list-group">
+        <div class="list-group shadow">
           <a href="index.html" class="list-group-item active main-color-bg">
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Jobs
           </a>
@@ -19,7 +19,7 @@ Home
       </div>
       <div class="col-md-8">
         <!-- Website Overview -->
-        <div class="card mb-3">
+        <div class="card mb-3 shadow">
           <div class="card-header border-custom pt-1 pb-1">
             <h3 class="card-title text-custom">Overview</h3>
           </div>
@@ -54,7 +54,7 @@ Home
         </div>
 
           <!-- Latest Users -->
-        <div class="card">
+        <div class="card shadow">
           <div class="card-header border-custom pt-1 pb-1">
             <h3 class="card-title text-custom">Latest Users</h3>
           </div>

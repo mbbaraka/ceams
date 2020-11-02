@@ -1,4 +1,4 @@
-@extends('hr.layouts.app')
+@extends('appraiser.layouts.app')
 
 @section('title')
 Home
@@ -6,28 +6,27 @@ Home
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-      {{-- <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
         <div class="list-group">
-          <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Staff Achievements
-          </a>
-          <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Studies <span class="badge">12</span></a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Courses Taught <span class="badge">33</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Publications <span class="badge">203</span></a>
-          <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Meetings/Workshops <span class="badge">12</span></a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Public Lectures/Papers Presented <span class="badge">33</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Research Activities <span class="badge">203</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Research Grants <span class="badge">203</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Community Service <span class="badge">203</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Administrative Responsibilities <span class="badge">203</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Const. Analysis and Performance Improvement <span class="badge">203</span></a>
-          <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Additional Skills <span class="badge">203</span></a>
-        </div>
-      </div> --}}
-        <div class="col-md-10">
+            <a href="index.html" class="list-group-item active main-color-bg">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Baraka Mark Bright
+            </a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff Particulars <span class="badge">12</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Staff Achievements <span class="badge">33</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Achievement System <span class="badge">203</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Core Competences <span class="badge">12</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Overall Assessment of Performance <span class="badge">33</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Recommendations <span class="badge">203</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Performance <span class="badge">203</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Performance Improvement Action Plan <span class="badge">203</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Comments <span class="badge">203</span></a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> View Appraisal <span class="badge">203</span></a>
+          </div>
+      </div>
+        <div class="col-md-8">
             <!-- Website Overview -->
-            <div class="card mb-3 shadow">
+            <div class="card mb-3">
               <div class="card-header border-custom pt-1 pb-1">
                 <h3 class="card-title text-custom">Overview</h3>
               </div>
@@ -62,7 +61,7 @@ Home
             </div>
 
               <!-- Latest Users -->
-            <div class="card shadow">
+            <div class="card">
               <div class="card-header border-custom pt-1 pb-1">
                 <h3 class="card-title text-custom">Latest Users</h3>
               </div>
