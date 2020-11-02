@@ -52,7 +52,7 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => '
     Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
     Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
     Route::get('/staffs/new', 'StaffController@createStaff')->name('hr.staffs.create');
-    Route::post('/staffs/new', 'StaffController@storeStaff')->name('hr.staff.store');
+    Route::post('/staffs/create', 'StaffController@store')->name('staff-store');
     Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
     // Route::get('/', 'HomeController@index')->name('hr.index');

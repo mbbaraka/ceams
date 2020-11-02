@@ -28,7 +28,7 @@ Login
                        <div class="col-md-9 col-lg-9">
                          <div class="card-body">
                            <div class="text-center">
-                             <img src="{{config('aoo.url')}}/logo.png" class="img-fluid">
+                             <img src="{{config('app.url')}}/logo.png" class="img-fluid">
                            </div>
                            <div class="container-fluid">
                                                         </div>

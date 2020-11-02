@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
-    protected $primaryKey = 'staff_id';
-    protected $incrementing = false;
-    protected $keyType = 'string';
+    public $primaryKey = 'staff_id';
+    public $incrementing = false;
+    public $keyType = 'string';
 
     public function studies()
     {
