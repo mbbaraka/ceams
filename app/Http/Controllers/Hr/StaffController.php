@@ -60,7 +60,7 @@ class StaffController extends Controller
                 $imagename =  $curentdate . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
 
-                $file->move(public_path('app\public\images\avator'), $imagename);
+                $file->move(public_path('app/public/images/avator'), $imagename);
          }else{
           $imagename = "default.png";
          }

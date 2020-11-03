@@ -18,7 +18,7 @@ Home
       </div>
       <div class="col-md-8">
         <!-- Website Overview -->
-        <div class="card mb-3">
+        {{-- <div class="card mb-3">
           <div class="card-header border-custom pt-1 pb-1">
             <h3 class="card-title text-custom">Overview</h3>
           </div>
@@ -50,7 +50,7 @@ Home
                 </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 
           <!-- Latest Users -->
         <div class="card">
