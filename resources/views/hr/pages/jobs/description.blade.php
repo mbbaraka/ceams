@@ -19,15 +19,16 @@ Home
         <!-- Website Overview -->
         <div class="card mb-3 shadow">
           <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Create New Job Title</h3>
+            <h3 class="card-title text-custom">New Job Description</h3>
           </div>
           <div class="card-body border-custom">
-            <form class="form-horizontal" action="{{ route('hr.jobs.store') }}" method="POST">
+            <form class="form-horizontal" action="{{ route('hr.jobs.description.store') }}" method="POST">
                 @csrf
                 <div class="form-group row">
                     <div class="col-sm-8">
-                      <input type="text" name="title" placeholder="Job Title" class="form-control @error('title') is-invalid @enderror" id="role">
-                      @error('title')
+                      <input type="hidden" name="job_id" value="{{ $job->id }}"/>
+                      <textarea name="description" placeholder="Job Description" class="form-control @error('description') is-invalid @enderror" id="description">{!!old('description')!!}</textarea>
+                      @error('description')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                           </span>
@@ -44,7 +45,7 @@ Home
           <!-- Latest Users -->
         <div class="card shadow">
           <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Job Titles Available</h3>
+          <h3 class="card-title text-custom">Job Descriptions for {{ $job->title }}</h3>
           </div>
           <div class="card-body border-custom">
             <table class="table table-striped table-hover">
@@ -53,15 +54,15 @@ Home
                   <th>Job Title</th>
                   <th>Action</th>
                 </tr>
-                @if(count($jobs) > 0)
-                @foreach ($jobs as $key => $job)
+                @if(count($descriptions) > 0)
+                @foreach ($descriptions as $key => $description)
                     <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $job->title }}</td>
+                    <td>{{ $description->description }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a href="{{ route('hr.jobs.description', $job->id) }}"><button title="Manage Descriptions" class="btn btn-light"><span class="fa fa-tasks text-dark"></span></button></a>
-                            <a href="#" title="Delete Job title" class="btn btn-light"><span class="fa fa-times-circle text-primary"></span></a>
+                            {{-- <a href="#"><button title="Manage Descriptions" class="btn btn-light"><span class="fa fa-tasks text-dark"></span></button></a> --}}
+                            <a href="{{ route('hr.jobs.description.delete', $description->id) }}" title="Delete Job title" class="btn btn-light"><span class="fa fa-times-circle text-primary"></span></a>
                         </div>
                     </td>
                     </tr>
@@ -70,7 +71,7 @@ Home
                 <tr> No data available</tr>
                 @endif
               </table>
-              {{ $jobs->links() }}
+              {{ $descriptions->links() }}
           </div>
         </div>
       </div>

@@ -151,4 +151,24 @@ class StaffController extends Controller
         }
 
     }
+
+    public function roleStaff()
+    {
+        // Staff with roles
+        $staffs = User::where('role', '!=', '0')->paginate(5);
+        return view('hr.pages.roles.staffs', compact('staffs'));
+    }
+
+
+    public function deassignRole($id)
+    {
+        // Deassign role from staff
+        $role = User::findOrFail($id);
+        $role->role = '0';
+        $save = $role->save();
+        if ($save) {
+            Alert::success('success', 'Staff de-assigned successfully');
+            return redirect()->back();
+        }
+    }
 }

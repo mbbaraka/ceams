@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Hr;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Jobs;
 
 class PageController extends Controller
 {
     public function jobs ()
     {
-        return view('hr.pages.jobs.index');
+        $jobs = Jobs::paginate(5);
+        return view('hr.pages.jobs.index', compact('jobs'));
     }
 
     public function appraisers ()

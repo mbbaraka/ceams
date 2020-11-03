@@ -14,6 +14,7 @@ Home
           </a>
           <a href="{{ route('hr.roles.create') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Roles </a>
           <a href="{{ route('hr.roles.assign') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Assign Role </a>
+          <a href="{{ route('hr.roles.staff') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff with Roles </a>
         </div>
       </div>
       <div class="col-md-8">

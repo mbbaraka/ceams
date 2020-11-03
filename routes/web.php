@@ -49,11 +49,9 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
 //Hr routes
 Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => 'Hr'], function (){
     Route::get('/', 'HomeController@index')->name('hr.index');
-    Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
     Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
     Route::get('/staffs/new', 'StaffController@createStaff')->name('hr.staffs.create');
     Route::post('/staffs/create', 'StaffController@store')->name('staff-store');
-    Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
     Route::get('/staff/roles', 'PageController@roles')->name('hr.roles');
     Route::post('/roles/new', 'StaffController@roleStore')->name('hr.roles.new');
@@ -61,7 +59,31 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => '
     Route::post('/roles/{id}', 'StaffController@deleteRole')->name('hr.roles.delete');
     Route::get('/roles/assign', 'StaffController@assignRole')->name('hr.roles.assign');
     Route::post('/roles/assign/store/{id}', 'StaffController@assignStoreRole')->name('hr.store.assign');
+    Route::get('/roles/staff', 'StaffController@roleStaff')->name('hr.roles.staff');
+    Route::post('/roles/{id}/de-assign', 'StaffController@deassignRole')->name('hr.role.deassign');
     // Route::get('/', 'HomeController@index')->name('hr.index');
+
+
+    // Manage Appraisers
+
+    Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');
+    Route::get('/appraisers/list', 'AppraiserController@list')->name('hr.appraiser.list');
+    Route::get('/appraisers/new', 'AppraiserController@new')->name('hr.appraiser.new');
+    Route::get('/appraisers/{id}/create', 'AppraiserController@store')->name('hr.appraiser.create');
+    Route::get('/appraisers/{id}/delete', 'AppraiserController@delete')->name('hr.appraiser.delete');
+    Route::get('/appraisers/{id}/appraisees', 'AppraiserController@appraisees')->name('hr.appraiser.appraisees');
+    Route::post('/appraisers/{id}/assign-appraisees', 'AppraiserController@appraiseeAssign')->name('hr.appraiser.assign');
+    Route::get('/appraisers/{id}/de-assign-appraisee', 'AppraiserController@appraiseeDeassign')->name('hr.appraisee.deassign');
+
+    // Manage Jobs and Job Descriptions
+    Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
+    Route::post('/jobs/new/store', 'JobController@store')->name('hr.jobs.store');
+    Route::get('/jobs/{id}/descriptions', 'JobController@jobDescription')->name('hr.jobs.description');
+    Route::post('/jobs/descriptions/store', 'JobController@jobDescriptionStore')->name('hr.jobs.description.store');
+    Route::get('/jobs/descriptions/{id}/delete', 'JobController@descriptionDelete')->name('hr.jobs.description.delete');
+
+
+
 });
 
 //Appraiser routes

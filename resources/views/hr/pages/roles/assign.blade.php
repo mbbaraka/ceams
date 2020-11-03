@@ -12,8 +12,9 @@ Home
           <a href="index.html" class="list-group-item active main-color-bg">
             <span class="fa fa-gears" aria-hidden="true"></span> Staff Roles
           </a>
-          <a href="{{ route('hr.staffs') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Roles </a>
+          <a href="{{ route('hr.roles.create') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Roles </a>
           <a href="{{ route('hr.roles.assign') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Assign Role </a>
+          <a href="{{ route('hr.roles.staff') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff with Roles </a>
         </div>
       </div>
       <div class="col-md-8">
@@ -56,7 +57,9 @@ Home
                           <th>Action</th>
                       </tr>
                   </thead>
-                  @foreach ($staffs as $key => $staff)
+                  <tbody>
+                @if(count($staffs) > 0)
+                @foreach ($staffs as $key => $staff)
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td style="text-transform: capitalize">{{ $staff->name }}</td>
@@ -77,7 +80,6 @@ Home
                                         <div class="modal-body">
                                             <form class="form-horizontal" method="POST" action="{{ route('hr.store.assign', $staff->staff_id) }}">
                                                 @csrf
-                                                @method('PUT')
                                                 <div class="row justify-content-center">
                                                     <select class="form-control col-md-7" name="role">
                                                         @foreach ($roles as $role)
@@ -97,6 +99,10 @@ Home
                         </td>
                     </tr>
                 @endforeach
+                @else
+                <tr>No Data available</tr>
+                @endif
+                  </tbody>
 
               </table>
               {{ $staffs->links() }}

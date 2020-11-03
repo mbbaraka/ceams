@@ -18,59 +18,48 @@ Home
         </div>
       </div>
       <div class="col-md-8">
-          <!-- Latest Users -->
-        <div class="card shadow">
-          <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Staff Roles</h3>
-          </div>
-          <div class="card-body border-custom">
-            <form class="form-horizontal" action="{{ route('hr.roles.new') }}" method="POST">
-                @csrf
-                <div class="form-group row">
-                    <div class="col-sm-8">
-                      <input type="text" name="role" placeholder="Role" class="form-control @error('role') is-invalid @enderror" id="role">
-                      @error('role')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    </div>
-                </div>
-            </form>
-          </div>
-        </div>
         <div class="card shadow">
             <div class="card-header border-custom pt-1 pb-1">
-              <h3 class="card-title text-custom">Staff Roles</h3>
+              <h3 class="card-title text-custom">Staff with Roles</h3>
             </div>
             <div class="card-body border-custom">
               <table class="table table-striped table-hover">
                   <thead>
                       <tr>
                           <th>#</th>
+                          <th>Staff</th>
+                          <th>Department</th>
+                          <th>Faculty</th>
                           <th>Role</th>
                           <th>Action</th>
                       </tr>
                   </thead>
-                  @foreach ($roles as $key => $role)
+                  <tbody>
+                @if(count($staffs) > 0)
+                @foreach ($staffs as $key => $staff)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $role->role }}</td>
+                        <td style="text-transform: capitalize">{{ $staff->name }}</td>
+                        <td>{{ $staff->department }}</td>
+                        <td>{{ $staff->faculty }}</td>
+                        <td>{{ $staff->role }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                {!! Form::open(['route' => ['hr.roles.delete', $role->id], 'method' => 'post', 'style' => 'display:inline']) !!}
-                                <button title="Delete" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-light"><span class="fa fa-trash text-danger"></span></button>
-                                {!! Form::close() !!}
+                                <form action="{{ route('hr.role.deassign', $staff->staff_id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" title="De-assign Role" onclick="confirm('Are you sure?')" class="btn btn-light"><span class="text-primary">De-assign</span></button>
+                                </form>
                             </div>
                         </td>
                     </tr>
                 @endforeach
+                @else
+                <tr>No Data available</tr>
+                @endif
+                  </tbody>
 
               </table>
-              {{ $roles->links() }}
+              {{ $staffs->links() }}
             </div>
           </div>
       </div>

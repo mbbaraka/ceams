@@ -19,7 +19,7 @@
     @include('hr.partials.nav')
 
     @include('hr.partials.breadcrub')
-    @include('hr.partials.flashmessage');
+    @include('hr.partials.flashmessage')
     <section id="main">
       @yield('content')
     </section>
