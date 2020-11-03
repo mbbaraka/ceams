@@ -135,7 +135,7 @@ class StaffController extends Controller
 
     public function assignRole()
     {
-        $staffs = User::where('role', '0')->paginate(5);
+        $staffs = User::where('role', NULL)->paginate(5);
         $roles = Role::get();
         return view('hr.pages.roles.assign', compact('staffs', 'roles'));
     }
