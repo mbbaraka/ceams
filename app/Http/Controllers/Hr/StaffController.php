@@ -65,7 +65,7 @@ class StaffController extends Controller
           $imagename = "default.png";
          }
 
-         if(!(Str::contains($request->email, 'mu.ac.ug'))){
+         if(!(Str::contains($request->email, 'muni.ac.ug'))){
             alert()->warning('Warning','Email must be valid!');
             return redirect()->back()->withInput();
          }else{
