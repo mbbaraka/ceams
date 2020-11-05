@@ -25,13 +25,13 @@ Particulars
 
                 <ul class="list-group list-group-flush mb-3 p-0">
                   <li class="list-group-item">
-                    <b>Joined</b> <a class="float-right">{{date('d/M/Y h:sa', strtotime($particulars->created_at))}}</a>
+                    <b>Joined</b> <a class="float-right">{{ date('d/M/Y h:sa', strtotime($particulars->created_at))}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Last Update</b> <a class="float-right">{{date('d/M/Y h:sa', strtotime($particulars->created_at))}}</a>
+                    <b>Last Update</b> <a class="float-right">{{ date('d/M/Y h:sa', strtotime($particulars->created_at))}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Appointment Date</b> <a class="float-right">{{date('d/M/Y h:sa', strtotime($particulars->appointment_date))}}</a>
+                    <b>Appointment Date</b> <a class="float-right">{{ date('d/M/Y h:sa', strtotime($particulars->appointment_date))}}</a>
                   </li>
                 </ul>
 
@@ -169,7 +169,7 @@ Particulars
                         <div class="offset-sm-2 col-sm-10">
                         	<div class="btn-group">
                         		<button class="btn btn-secondary">Back</button>
-                          		<button type="submit" class="btn btn-primary">Update</button>                        		
+                          		<button type="submit" class="btn btn-primary">Update</button>
                         	</div>
                         </div>
                       </div>
