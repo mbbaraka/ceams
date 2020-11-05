@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use App\User;
 use App\Role;
+use App\Jobs;
 use Str;
 use Alert;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,8 @@ class StaffController extends Controller
 
     public function createStaff()
     {
-        return view('hr.pages.staffs.create');
+        $jobs = Jobs::get();
+        return view('hr.pages.staffs.create', compact('jobs'));
     }
 
     /**

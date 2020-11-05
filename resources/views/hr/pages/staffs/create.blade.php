@@ -93,7 +93,11 @@ Home
                     <div class="form-group row">
                       <label for="department" class="col-sm-2 col-form-label">Department</label>
                       <div class="col-sm-10">
-                        <input type="text" value="{{old('department')}}"  class="@error('department') is-invalid @enderror form-control" id="department" name="department" placeholder="Department">
+                        {{-- <input type="text" value="{{old('department')}}"  class="@error('department') is-invalid @enderror form-control" id="department" name="department" placeholder="Department"> --}}
+                        <select name="department" class="@error('department') is-invalid @enderror form-control" id="faculty">
+                            <option value="Computer and Information Sciences">Computer and Information Sciences</option>
+                            <option value="Nursing">Nursing</option>
+                        </select>
                         @error('department')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -104,7 +108,11 @@ Home
                     <div class="form-group row">
                       <label for="faculty" class="col-sm-2 col-form-label">Faculty</label>
                       <div class="col-sm-10">
-                        <input type="text" value="{{old('faculty')}}" class="@error('faculty') is-invalid @enderror form-control"  name="faculty" id="faculty" placeholder="Faculty">
+                        {{-- <input type="text" value="{{old('faculty')}}" class="@error('faculty') is-invalid @enderror form-control"  name="faculty" id="faculty" placeholder="Faculty"> --}}
+                        <select name="faculty" class="@error('faculty') is-invalid @enderror form-control" id="faculty">
+                            <option value="Techno Science">Techno Science</option>
+                            <option value="Health Science">Health Sciences</option>
+                        </select>
                         @error('faculty')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -115,7 +123,12 @@ Home
                     <div class="form-group row">
                       <label for="job-title" class="col-sm-2 col-form-label">Job Title</label>
                       <div class="col-sm-10">
-                        <input type="text" value="{{old('job_title')}}" class="@error('job_title') is-invalid @enderror form-control"   name="job_title" id="job-title" placeholder="Job Title">
+                        {{-- <input type="text" value="{{old('job_title')}}"    name="job_title" id="job-title" placeholder="Job Title"> --}}
+                        <select class="@error('job_title') is-invalid @enderror form-control" name="job_title" id="job-title">
+                            @foreach ($jobs as $job)
+                            <option value="{{ $job->title }}">{{ $job->title }}</option>
+                            @endforeach
+                        </select>
                         @error('job_title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
