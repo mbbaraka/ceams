@@ -49,15 +49,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    //redirecting if not approved
-    public function authenticated(Request $request, $user)
-    {
-        if ($user->status != 1) {
-            Auth::logout();
-
-            return redirect('pending-registration')->withError('Please activate your account before logging in.');
-        }
-    }
     /**
      * Get a validator for an incoming registration request.
      *
