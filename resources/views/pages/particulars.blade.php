@@ -14,8 +14,8 @@ Particulars
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                  <img class="profile-user-img img-fluid img-circle" style="width: 100px; height:100px"
+                       src="{{ asset(config('app.url').'/app/public/images/avator/'.$particulars->avator) }}"
                        alt="User profile picture">
                 </div>
 
@@ -31,7 +31,7 @@ Particulars
                     <b>Last Update</b> <a class="float-right">{{ date('d/M/Y h:sa', strtotime($particulars->created_at))}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Appointment Date</b> <a class="float-right">{{ date('d/M/Y h:sa', strtotime($particulars->appointment_date))}}</a>
+                    <b>Appointment Date</b> <a class="float-right">{{ date('d/M/Y h:sa', strtotime($particulars->created_at))}}</a>
                   </li>
                 </ul>
 

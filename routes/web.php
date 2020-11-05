@@ -22,7 +22,7 @@ Auth::routes();
 // Route::get('contact', 'WebsiteController@showContactForm')->name('contact.show');
 // Route::post('contact', 'WebsiteController@submitContactForm')->name('contact.submit');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pending-registration', 'HomeController@pending')->name('pending');
 
 Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], function () {
 	Route::get('/', 'HomeController@index')->name('index');
