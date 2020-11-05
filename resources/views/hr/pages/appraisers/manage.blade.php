@@ -85,6 +85,7 @@ Home
                     @endif
                 </tbody>
             </table>
+            {{ $appraisees->links() }}
           </div>
         </div>
       </div>

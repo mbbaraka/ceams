@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Jobs;
 use Alert;
 use App\JobDescription;
+use Illuminate\Contracts\Queue\Job;
 
 class JobController extends Controller
 {
@@ -26,6 +27,18 @@ class JobController extends Controller
              Alert::success('Success', 'Job title created successfully!');
              return redirect()->back();
          }
+    }
+
+    public function deleteJob($id)
+    {
+        $job = Jobs::findOrFail($id);
+        $delete = $job->delete();
+
+        if($delete)
+        {
+            Alert::success('Success', 'Job descripton deleted successfully!');
+            return redirect()->back();
+        }
     }
 
     public function jobDescription($id)

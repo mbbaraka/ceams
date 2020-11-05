@@ -35,8 +35,8 @@ Home
                 @foreach ($roles as $key => $role)
                 <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $role->department }}</td>
                     <td>{{ $role->name }}</td>
+                    <td>{{ $role->department }}</td>
                     <td>{{ $role->role }}</td>
                     <td>
                         <div class="btn-group" role="group">

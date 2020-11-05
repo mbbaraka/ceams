@@ -35,9 +35,9 @@ Home
                 @foreach ($staffs as $key => $staff)
                 <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $staff->name }}</td>
-                    <td>{{ $staff->job_title }}</td>
-                    <td>{{ $staff->department }}</td>
+                    <td style="text-transform: capitalize">{{ $staff->name }}</td>
+                    <td style="text-transform: capitalize">{{ $staff->job_title }}</td>
+                    <td style="text-transform: capitalize">{{ $staff->department }}</td>
                     <td>
                         <div class="btn-group" role="group">
                             {!! Form::open(['route' => ['hr.staffs.pending.approve', $staff->staff_id], 'method' => 'post', 'style' => 'display:inline']) !!}

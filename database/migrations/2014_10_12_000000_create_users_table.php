@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('salary_scale')->nullable();
             $table->string('appointment_date')->nullable();
             $table->string('terms_of_service')->nullable();
-            $table->enum('is_appraiser', ['1','0']);
+            $table->enum('is_appraiser', ['0','1']);
             $table->string('appraiser_status')->nullable();
             $table->string('role')->nullable();
             $table->enum('status', ['0','1']);

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'staff_id', 'name', 'email', 'password',
+        'staff_id', 'name', 'email', 'password', 'status', 'is_appraiser',
     ];
     public $primaryKey = 'staff_id';
     public $incrementing = false;

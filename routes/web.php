@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,13 @@ Auth::routes();
 // Route::get('page/{slug}', 'WebsiteController@page')->name('page');
 // Route::get('contact', 'WebsiteController@showContactForm')->name('contact.show');
 // Route::post('contact', 'WebsiteController@submitContactForm')->name('contact.submit');
+Route::get('/send-mail', function () {
 
+    Mail::to('newuser@example.com')->send(new Samplemail());
+
+    return 'A message has been sent to Mailtrap!';
+
+});
 Route::get('/pending-registration', 'HomeController@pending')->name('pending');
 
 Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], function () {
@@ -84,6 +92,7 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => '
     // Manage Jobs and Job Descriptions
     Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
     Route::post('/jobs/new/store', 'JobController@store')->name('hr.jobs.store');
+    Route::get('/jobs/{id}/delete', 'JobController@deleteJob')->name('hr.jobs.delete');
     Route::get('/jobs/{id}/descriptions', 'JobController@jobDescription')->name('hr.jobs.description');
     Route::post('/jobs/descriptions/store', 'JobController@jobDescriptionStore')->name('hr.jobs.description.store');
     Route::get('/jobs/descriptions/{id}/delete', 'JobController@descriptionDelete')->name('hr.jobs.description.delete');

@@ -44,7 +44,7 @@ Home
         </div> --}}
         <div class="card shadow">
             <div class="card-header border-custom pt-1 pb-1">
-              <h3 class="card-title text-custom">Staff with Roles</h3>
+              <h3 class="card-title text-custom">Assign Roles to Staff</h3>
             </div>
             <div class="card-body border-custom">
               <table class="table table-striped table-hover">
