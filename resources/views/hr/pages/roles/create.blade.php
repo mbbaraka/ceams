@@ -19,7 +19,7 @@ Home
       </div>
       <div class="col-md-8">
           <!-- Latest Users -->
-        <div class="card shadow">
+        <div class="card shadow mb-3">
           <div class="card-header border-custom pt-1 pb-1">
             <h3 class="card-title text-custom">Staff Roles</h3>
           </div>

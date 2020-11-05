@@ -13,6 +13,9 @@ Register
                 <div class="card-body">
                   <h1 class="text-center pt-5 login-title">Computerised Employee Appraisal Management System</h1>
                   <div class="pt-5 text-center">
+                      <br>
+                      <br>
+                      <br>
                    <span><b>For more information: </b></span><br>
                    <span><label class="font-weight-bold">Call :</label> +256773034311 or +256758029195</span><br>
                    <span><label class="font-weight-bold">Contact :</label> <a href="mailto:admin@admin.com">admin@admin.com</a></span>
@@ -33,9 +36,8 @@ Register
                                                    </div>
                        <form method="POST" action="{{ route('register') }}">
                          @csrf
-                         <div class="form-group row">
+                         {{-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Staff ID') }}</label>
-
                             <div class="col-md-6">
                                 <input id="staff_id" type="text" class="form-control @error('staff_id') is-invalid @enderror" name="staff_id" value="{{ old('staff_id') }}" required autocomplete="staff_id" autofocus>
 
@@ -45,9 +47,21 @@ Register
                                     </span>
                                 @enderror
                             </div>
+                        </div> --}}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon3">{{ __('Staff ID') }}</span>
+                            </div>
+                            <input id="staff_id" type="text" class="form-control @error('staff_id') is-invalid @enderror" name="staff_id" value="{{ old('staff_id') }}" required autocomplete="staff_id" autofocus>
+
+                            @error('staff_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -59,9 +73,22 @@ Register
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group row">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon3">{{ __('Name') }}</span>
+                            </div>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                          </div>
+
+                        {{-- <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -73,9 +100,22 @@ Register
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group row">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon3">{{ __('E-Mail Address') }}</span>
+                            </div>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                          </div>
+
+                        {{-- <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -87,24 +127,44 @@ Register
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group row">
+                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon3">{{ __('Password') }}</span>
+                            </div>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                          </div>
+
+
+                        {{-- <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
+                        </div> --}}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon3">{{ __('Password') }}</span>
+                            </div>
+                            <input id="password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+                          </div>
 
                         <div class="form-group row mb-0">
                             <button type="submit" class="btn btn-outline-primary container">
                                 {{ __('Register') }}
                             </button>
                         </div>
-                         <div class="justify-content-between">
-                               <span class="col-lg-6"><a href="{{ route('login') }}" class="float-right">Login</a></span>
-                             </div>
+                        <br>
+                        <p>Already registered? <a href="{{ route('login') }}">{{__('Login')}}</a></p>
                        </form>
                     </div>
                   </div>
