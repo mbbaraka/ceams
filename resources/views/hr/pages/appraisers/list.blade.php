@@ -9,11 +9,11 @@ Home
     <div class="row">
       <div class="col-md-4">
         <div class="list-group">
-          <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Appraisers
-          </a>
-          <a href="{{ route('hr.appraiser.list') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> List </a>
-          <a href="{{ route('hr.appraiser.new') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Create New </a>
+            <div class="list-group-item border-custom pt-1 pb-1">
+              <h4 class="text-custom">Manage Appraisers</h4>
+            </div>
+          <a href="{{ route('hr.appraiser.list') }}" class="list-group-item list-group-item-action active border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> List </a>
+          <a href="{{ route('hr.appraiser.new') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Create New </a>
         </div>
       </div>
       <div class="col-md-8">

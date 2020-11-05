@@ -38,8 +38,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::resource('publications', 'PublicationController', ['except' => 'create', 'edit', 'show']);
     Route::resource('responsibilities', 'AdministrativeController', ['except' => 'create', 'edit', 'show']);
     Route::resource('particulars', 'ParticularsController');
-    // Route::resource('pages', 'PageController');
-    // Route::resource('galleries', 'GalleryController');
+    Route::resource('community-service', 'CommunityServiceController', ['except' => 'create', 'edit', 'show']);
+    // Route::resource('responsibilities', 'AdministrativeController', ['except' => 'create', 'edit', 'show']);
 
 
 
@@ -49,11 +49,17 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
 //Hr routes
 Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => 'Hr'], function (){
     Route::get('/', 'HomeController@index')->name('hr.index');
+
+    // MAnage staffs
     Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
     Route::get('/staffs/new', 'StaffController@createStaff')->name('hr.staffs.create');
     Route::post('/staffs/create', 'StaffController@store')->name('staff-store');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
     Route::get('/staff/roles', 'PageController@roles')->name('hr.roles');
+    Route::get('/staff/pending', 'StaffController@pendingStaff')->name('hr.staffs.pending');
+    Route::post('/staff/update/{id}/pending', 'StaffController@updatePending')->name('hr.staffs.pending.approve');
+
+    //  Manage roles
     Route::post('/roles/new', 'StaffController@roleStore')->name('hr.roles.new');
     Route::get('/roles', 'StaffController@roles')->name('hr.roles.create');
     Route::post('/roles/{id}', 'StaffController@deleteRole')->name('hr.roles.delete');

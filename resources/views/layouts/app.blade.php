@@ -14,6 +14,7 @@
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
   </head>
   <body>
+    @include('sweetalert::alert')
 
     @include('partials.nav')
 

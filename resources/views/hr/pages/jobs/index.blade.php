@@ -9,10 +9,10 @@ Home
     <div class="row">
       <div class="col-md-4">
         <div class="list-group shadow">
-          <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Jobs
-          </a>
-          <a href="{{ route('hr.jobs') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Jobs </a>
+            <div class="list-group-item border-custom pt-1 pb-1">
+              <h4 class="text-custom">Manage Jobs Titles</h4>
+            </div>
+          <a href="{{ route('hr.jobs') }}" class="list-group-item border-custom active list-group-item-action"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Jobs </a>
         </div>
       </div>
       <div class="col-md-8">

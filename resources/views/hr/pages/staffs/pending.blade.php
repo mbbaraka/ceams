@@ -12,8 +12,8 @@ Home
             <div class="list-group-item border-custom pt-1 pb-1">
               <h4 class="text-custom">Manage Staffs</h4>
             </div>
-          <a href="{{ route('hr.staffs') }}" class="list-group-item list-group-item-action active border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List </a>
-          <a href="{{ route('hr.staffs.pending') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs </a>
+          <a href="{{ route('hr.staffs') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List </a>
+          <a href="{{ route('hr.staffs.pending') }}" class="list-group-item active list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs </a>
           <a href="{{ route('hr.staffs.create') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> New Staff </a>
         </div>
       </div>
@@ -21,7 +21,7 @@ Home
           <!-- Latest Users -->
         <div class="card shadow">
           <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Staffs List</h3>
+            <h3 class="card-title text-custom">Staff Pending for Approval</h3>
           </div>
           <div class="card-body border-custom">
             <table class="table table-striped table-hover">
@@ -40,11 +40,8 @@ Home
                     <td>{{ $staff->department }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a href="#"><button title="View Profile" class="btn btn-light"><span class="fa fa-eye text-dark"></span></button></a>
-                            <a href="#modal{{$staff->staff_id}}" title="Edit" class="btn btn-light" data-toggle="modal" data-target="#modal{{$staff->zstaff_id}}"><span class="fa fa-edit text-primary"></span></a>
-
-                            {!! Form::open(['route' => ['courses.destroy', $staff->staff_id], 'method' => 'delete', 'style' => 'display:inline']) !!}
-                              <button title="Delete" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-light"><span class="fa fa-trash text-danger"></span></button>
+                            {!! Form::open(['route' => ['hr.staffs.pending.approve', $staff->staff_id], 'method' => 'post', 'style' => 'display:inline']) !!}
+                              <button title="Approve" class="btn btn-light"><span class="">Approve</span></button>
                             {!! Form::close() !!}
                         </div>
                     </td>

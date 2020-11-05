@@ -9,13 +9,12 @@ Home
     <div class="row">
       <div class="col-md-4">
         <div class="list-group">
-          <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="fa fa-gears" aria-hidden="true"></span> Manage Staffs
-          </a>
-          <a href="{{ route('hr.staffs') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List </a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs </a>
-          <a href="{{ route('hr.staffs.create') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> New Staff </a>
-          <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Something else </a>
+            <div class="list-group-item border-custom pt-1 pb-1">
+              <h4 class="text-custom">Manage Staffs</h4>
+            </div>
+          <a href="{{ route('hr.staffs') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staffs List </a>
+          <a href="{{ route('hr.staffs.pending') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Pending Staffs </a>
+          <a href="{{ route('hr.staffs.create') }}" class="list-group-item active list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> New Staff </a>
         </div>
       </div>
       <div class="col-md-8">

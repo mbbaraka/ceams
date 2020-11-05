@@ -9,12 +9,12 @@ Home
     <div class="row">
       <div class="col-md-4">
         <div class="list-group shadow">
-          <a href="index.html" class="list-group-item active main-color-bg">
-            <span class="fa fa-gears" aria-hidden="true"></span> Staff Roles
-          </a>
-          <a href="{{ route('hr.roles.create') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Roles </a>
-          <a href="{{ route('hr.roles.assign') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Assign Role </a>
-          <a href="{{ route('hr.roles.staff') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff with Roles </a>
+            <div class="list-group-item border-custom pt-1 pb-1">
+              <h4 class="text-custom">Manage Staff Roles</h4>
+            </div>
+          <a href="{{ route('hr.roles.create') }}" class="list-group-item list-group-item-action border-custom active"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Roles </a>
+          <a href="{{ route('hr.roles.assign') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Assign Role </a>
+          <a href="{{ route('hr.roles.staff') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff with Roles </a>
         </div>
       </div>
       <div class="col-md-8">

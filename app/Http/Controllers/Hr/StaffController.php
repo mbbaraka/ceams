@@ -164,10 +164,29 @@ class StaffController extends Controller
     {
         // Deassign role from staff
         $role = User::findOrFail($id);
-        $role->role = '0';
+        $role->role = NULL;
         $save = $role->save();
         if ($save) {
             Alert::success('success', 'Staff de-assigned successfully');
+            return redirect()->back();
+        }
+    }
+
+    public function pendingStaff()
+    {
+        $staffs = User::where('status', '0')->orderBy('created_at', 'desc')->paginate();
+        return view('hr.pages.staffs.pending', compact('staffs'));
+    }
+
+    public function updatePending(Request $request, $id)
+    {
+        $staff = USer::findOrFail($id);
+        $staff->status = '1';
+        $save = $staff->save();
+
+        if($save)
+        {
+            Alert::success('success', 'Staff approved successfully!');
             return redirect()->back();
         }
     }

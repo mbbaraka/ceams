@@ -21,7 +21,7 @@ class CreateAdminResponsibilitiesTable extends Migration
         Schema::create('admin_responsibilities', function (Blueprint $table) {
             $table->id();
             $table->string('staff_id');
-            $table->string('responsibilty')->nullable();
+            $table->string('responsibility')->nullable();
             $table->string('date')->nullable();
             $table->string('duration')->nullable();
             $table->timestamps();
