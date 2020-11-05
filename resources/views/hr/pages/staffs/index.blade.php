@@ -103,7 +103,7 @@ Home
                             </div>
                             <a href="#modal{{$staff->staff_id}}" title="Edit" class="btn btn-light" data-toggle="modal" data-target="#modal{{$staff->staff_id}}"><span class="fa fa-edit text-primary"></span></a>
 
-                            {!! Form::open(['route' => ['courses.destroy', $staff->staff_id], 'method' => 'delete', 'style' => 'display:inline']) !!}
+                            {!! Form::open(['route' => ['hr.staffs.delete', $staff->staff_id], 'method' => 'post', 'style' => 'display:inline']) !!}
                               <button title="Delete" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-light"><span class="fa fa-trash text-danger"></span></button>
                             {!! Form::close() !!}
                         </div>

@@ -100,6 +100,16 @@ class StaffController extends Controller
         }
     }
 
+    public function deleteStaff($id)
+    {
+        $staff = User::findOrFail($id);
+        $delete = $staff->delete();
+
+        if($delete){
+            Alert::success('Success', 'Staff deleted successfully!');
+            return redirect()->back();
+        }
+    }
 
     public function roles()
     {

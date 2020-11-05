@@ -62,6 +62,7 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => '
     Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
     Route::get('/staffs/new', 'StaffController@createStaff')->name('hr.staffs.create');
     Route::post('/staffs/create', 'StaffController@store')->name('staff-store');
+    Route::post('/staffs/{id}/delete', 'StaffController@deleteStaff')->name('hr.staffs.delete');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
     Route::get('/staff/roles', 'PageController@roles')->name('hr.roles');
     Route::get('/staff/pending', 'StaffController@pendingStaff')->name('hr.staffs.pending');
