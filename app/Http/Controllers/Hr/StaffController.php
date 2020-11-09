@@ -77,7 +77,7 @@ class StaffController extends Controller
             $staff->avator = $imagename;
             $staff->staff_id = $request->staff_id;
             $staff->name = $request->name;
-            $staff->password = Hash::make(Str::random(6));
+            $staff->password = Hash::make($request->staff_id);
             $staff->email = $request->email;
             $staff->dob = $request->date_of_birth;
             $staff->phone = $request->phone;
@@ -281,6 +281,7 @@ class StaffController extends Controller
             $notifications = new Notification();
             $notifications->sender_id = Auth::user()->staff_id;
             $notifications->receiver_id = $id;
+            $notifications->status = '0';
             $notifications->message = "Your account has been approved successfully by the Human Resource Officer. You can now login to your portal.";
 
             $save_notification = $notifications->save();
