@@ -34,7 +34,7 @@ class HomeController extends Controller
         // $pages = Post::orderBy('id', 'DESC')->where('post_type', 'page')->limit('3')->get();
         // return view('admin.index', compact('categories', 'posts', 'pages'));
         // $title = 'Hello';
-        $notification_count = Notification::where('receiver_id', Auth::user()->staff_id)->where('status', 0)->get();
+        $notification_count = Notification::where('receiver_id', Auth::user()->staff_id)->where('status', '0')->get();
         $notifications = Notification::where('receiver_id', Auth::user()->staff_id)->latest()->paginate(5);
         return view ('pages.index', compact('notifications', 'notification_count'));
     }
