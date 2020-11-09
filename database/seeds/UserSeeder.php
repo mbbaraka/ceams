@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'staff_id' => 'mu001',
             'name' => 'Mark Bright Baraka',
-            'email' => 'mark@gmail.com',
+            'email' => 'mark@muni.ac.ug',
             'password' => Hash::make('helloworld'),
-            'role' => '1',
+            'role' => 'HR',
         ]);
     }
 }
