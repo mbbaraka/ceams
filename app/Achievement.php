@@ -13,6 +13,6 @@ class Achievement extends Model
 
     public function description()
     {
-    	return $this->belongsTo('App\JobDescription', '');
+    	return $this->belongsTo('App\JobDescription', 'job_desc_id');
     }
 }

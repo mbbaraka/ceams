@@ -10,4 +10,9 @@ class CompetenceAssessment extends Model
     {
         return $this->belongsTo(Users::class);
     }
+
+    public function competent()
+    {
+        return $this->belongsTo(Competence::class, 'competence_id');
+    }
 }

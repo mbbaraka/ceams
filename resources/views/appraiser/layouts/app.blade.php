@@ -14,6 +14,7 @@
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
   </head>
   <body>
+    @include('sweetalert::alert')
 
     @include('appraiser.partials.nav')
 
@@ -40,5 +41,11 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script>
+        // Tooltip & popovers
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+    </script>
   </body>
 </html>

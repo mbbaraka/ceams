@@ -66,8 +66,13 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::get('/apraisee-list', 'AppraiserController@listAppraisee')->name('appraisee-list');
     Route::get('/appraiser/{id}/staff', 'AppraiserController@staff')->name('appraiser-staff');
     Route::get('/appraiser/{id}/achievements', 'AppraiserController@achievement')->name('staff-achievements');
-    Route::get('/appraiser', 'AppraiserController@index')->name('achievement-assessment');
+    Route::get('/appraiser/{id}/achievement-assessment/', 'AppraiserController@achievementAssessment')->name('achievements-assessment');
+    Route::post('/appraiser/{id}/update', 'AppraiserController@updateAchievement')->name('achievements-assessment.update');
+    Route::get('/appraiser/{id}/reject/{staff}', 'AppraiserController@rejectAchievement')->name('achievements-assessment.reject');
+    Route::get('/appraiser/{id}/approve/{staff}', 'AppraiserController@approveAchievement')->name('achievements-assessment.approve');
 
+    Route::get('/appraiser/{id}/core-competences', 'AppraiserController@coreCompetence')->name('core-competences');
+    Route::post('/appraiser/core-competence/store', 'AppraiserController@editCompetence')->name('store.core-competences');
 });
 
 
@@ -116,6 +121,16 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, hr', 'namespace' => 
     Route::post('/jobs/descriptions/store', 'JobController@jobDescriptionStore')->name('hr.jobs.description.store');
     Route::get('/jobs/descriptions/{id}/delete', 'JobController@descriptionDelete')->name('hr.jobs.description.delete');
 
+    // Core competences
+    Route::get('/core-competences', 'CompetenceController@index')->name('hr.core-competences');
+    Route::get('/core-competences/{id}/delete', 'CompetenceController@delete')->name('hr.core-competences.delete');
+    Route::post('/core-competences/{id}/edit', 'CompetenceController@update')->name('hr.core-competences.update');
+    Route::post('/core-competence/store', 'CompetenceController@store')->name('hr.core-competences-store');
+    Route::get('core-competences/create' ,function(){
+
+        return view('hr.pages.core-competences.create');
+
+    })->name('hr.core-competences.create');
 
 
 });

@@ -73,6 +73,7 @@ class StaffController extends Controller
             alert::warning('Warning','Email must be valid!');
             return redirect()->back()->withInput();
          }else{
+            // $randomString = Str::random(6);
             $staff = new User();
             $staff->avator = $imagename;
             $staff->staff_id = $request->staff_id;
@@ -220,7 +221,7 @@ class StaffController extends Controller
         return view('hr.pages.roles.assign', compact('staffs', 'roles'));
     }
 
-    public function assignStoreRole(Request $request, $id)
+    public function assignStoreRole(Request $request, $id, $staff)
     {
         $assign = User::findOrFail($id);
         $assign->role = $request->role;

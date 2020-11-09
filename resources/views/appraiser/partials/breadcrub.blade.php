@@ -2,9 +2,9 @@
       <div class="container">
           <div class="row">
               <div class="col-md-10">
-                <ol class="breadcrumb">
+                {{-- <ol class="breadcrumb">
                     <li><a href="{{ url('/') }}">Dashboard</a></li>
-                    {{-- <span>&nbsp; >> &nbsp;</span> --}}
+
                     @for($i = 0; $i <= count(Request::segments()); $i++)
                     <li>
 
@@ -14,6 +14,16 @@
                         @endif
                     </li>
                     @endfor
+                </ol> --}}
+                <ol class="breadcrumb">
+                    <li><a href="/appraiser"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+                    <?php $segments = ''; ?>
+                    @foreach(Request::segments() as $segment)
+                        <?php $segments .= '/'.$segment; ?>
+                        <li>
+                            &nbsp; >> <a href="{{ $segments }}">{{$segment}}</a>
+                        </li>
+                    @endforeach
                 </ol>
               </div>
               <div class="col-md-2">

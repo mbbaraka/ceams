@@ -15,6 +15,7 @@
             <li class="nav-item"><a class="nav-link text-light" href="{{ route('hr.staffs') }}">Staffs</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="{{ route('hr.appraisals') }}">Appraisals</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="{{ route('hr.roles') }}">Roles</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('hr.core-competences') }}">Core Competences</a></li>
           </ul>
           <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link text-light" href="#">Hi,</a></li>
