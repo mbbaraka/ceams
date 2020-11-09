@@ -19,7 +19,7 @@
     @include('partials.nav')
 
     @include('partials.breadcrub')
-    @include('partials.flashmessage');
+    @include('partials.flashmessage')
     <section id="main">
       @yield('content')
     </section>

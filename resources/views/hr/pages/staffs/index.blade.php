@@ -48,61 +48,22 @@ Home
                                             <h3>Viewing {{ $staff->name }}'s Profile</h3>
                                             <button class="close" type="button" data-dismiss="modal">&times;</button>
                                         </div>
-                                        <div class="modal-body">
-                                            <table class="table container table-striped table-inverse">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td scope="row">Staff ID:</td>
-                                                            <td >{{ $staff->staff_id }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Name:</td>
-                                                            <td style="text-transform: capitalize">{{ $staff->name }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Email</td>
-                                                            <td>{{ $staff->email }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Phone Number</td>
-                                                            <td >{{ $staff->phone }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Date of Birth:</td>
-                                                            <td >{{ date('d M, Y', strtotime($staff->dob)) }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Department</td>
-                                                            <td>{{ $staff->department }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Faculty:</td>
-                                                            <td >{{ $staff->faculty }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Job Title:</td>
-                                                            <td >{{ $staff->job_title }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Salary Scale</td>
-                                                            <td>{{ $staff->salary_scale }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Appointment Date:</td>
-                                                            <td >{{ date('d M, Y', strtotime($staff->appointment_date)) }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Terms of Service:</td>
-                                                            <td >{{ $staff->terms_of_service }}</td>
-                                                        </tr>
-                                                    </tbody>
-                                            </table>
-                                        </div>
+                                        @include('hr.pages.staffs.view')
                                     </div>
                                 </div>
                             </div>
-                            <a href="#modal{{$staff->staff_id}}" title="Edit" class="btn btn-light" data-toggle="modal" data-target="#modal{{$staff->staff_id}}"><span class="fa fa-edit text-primary"></span></a>
-
+                            <a href="#editModal{{$staff->staff_id}}" title="Edit" class="btn btn-light" data-toggle="modal"><span class="fa fa-edit text-primary"></span></a>
+                            <div class="modal fade show" id="editModal{{ $staff->staff_id }}">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 style="text-transform: capitalize">Editing {{ $staff->name }}'s Profile</h3>
+                                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        @include('hr.pages.staffs.edit')
+                                    </div>
+                                </div>
+                            </div>
                             {!! Form::open(['route' => ['hr.staffs.delete', $staff->staff_id], 'method' => 'post', 'style' => 'display:inline']) !!}
                               <button title="Delete" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-light"><span class="fa fa-trash text-danger"></span></button>
                             {!! Form::close() !!}

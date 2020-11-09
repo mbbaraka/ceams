@@ -34,8 +34,9 @@ class PageController extends Controller
 
     public function staffs ()
     {
+        $jobs = Jobs::get();
         $staffs = User::where('status', '1')->orderBy('staff_id', 'desc')->paginate(5);
-        return view('hr.pages.staffs.index', compact('staffs'));
+        return view('hr.pages.staffs.index', compact('staffs', 'jobs'));
     }
 
 }

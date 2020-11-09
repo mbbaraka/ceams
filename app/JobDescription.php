@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Achievement;
 use Illuminate\Database\Eloquent\Model;
 
 class JobDescription extends Model
@@ -11,9 +12,9 @@ class JobDescription extends Model
         return $this->belongsTo(Jobs::class);
     }
 
-    public function achivements()
+    public function achievements()
     {
-        return $this->hasMany(Achievement::class);
+        return $this->HasMany('App\Achievement', 'job_desc_id');
     }
-    
+
 }

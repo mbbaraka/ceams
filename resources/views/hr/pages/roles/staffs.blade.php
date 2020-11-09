@@ -42,12 +42,12 @@ Home
                         <td style="text-transform: capitalize">{{ $staff->name }}</td>
                         <td>{{ $staff->department }}</td>
                         <td>{{ $staff->faculty }}</td>
-                        <td>{{ $staff->role }}</td>
+                        <td>{{ Str::ucfirst($staff->role) }}</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <form action="{{ route('hr.role.deassign', $staff->staff_id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" title="De-assign Role" onclick="confirm('Are you sure?')" class="btn btn-light"><span class="text-primary">De-assign</span></button>
+                                    <button type="submit" title="De-assign Role" onclick="confirm('Are you sure?')" class="btn btn-light"><span class="text-danger fa fa-times-circle"></span></button>
                                 </form>
                             </div>
                         </td>

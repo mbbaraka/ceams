@@ -19,10 +19,32 @@
               <div class="col-md-2">
                 <div class="col-md-2 ml-auto">
                     <div class="dropdown create float-right">
+                      @can('isHR', Auth::user()->role)
                       <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
                         Switch to HR
                         <span class="caret"></span>
                       </a>
+                      @elsecan('isHod')
+                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
+                        Switch to HOD
+                        <span class="caret"></span>
+                      </a>
+                      @elsecan('isDean')
+                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
+                        Switch to Dean
+                        <span class="caret"></span>
+                      </a>
+                      @elsecan('isUs')
+                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
+                        Switch to US
+                        <span class="caret"></span>
+                      </a>
+                      @elsecan('isVc')
+                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
+                        Switch to VC
+                        <span class="caret"></span>
+                      </a>
+                      @endcan
                       {{-- <ul class="dropdown-menu border-custom text-custom dropdown-menu-right" aria-labelledby="dropdownMenu1">
 
                           @switch(Auth::user()->role)

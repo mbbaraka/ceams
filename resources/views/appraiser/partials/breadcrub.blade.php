@@ -21,35 +21,7 @@
                     <div class="dropdown create float-right">
                       <a href="{{ url('/') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
                         Switch Back
-                        <span class="caret"></span>
                       </a>
-                      {{-- <ul class="dropdown-menu border-custom text-custom dropdown-menu-right" aria-labelledby="dropdownMenu1">
-
-                          @switch(Auth::user()->role)
-                              @case(1)
-                              <li><a href="#" class="dropdown-item">Switch to HR</a></li>
-                                  @break
-                              @case(2)
-                              <li><a href="#" class="dropdown-item">Switch to HOD</a></li>
-                                  @break
-                              @case(3)
-                              <li><a href="#" class="dropdown-item">Switch to DEAN</a></li>
-                                  @break
-                              @case(4)
-                              <li><a href="#" class="dropdown-item">Switch to US</a></li>
-                                  @break
-                              @case(5)
-                              <li><a href="#" class="dropdown-item">Switch to VS</a></li>
-                                  @break
-                              @default
-
-                          @endswitch
-
-
-                        {{-- <li><a href="#" class="dropdown-item">Switch to DEAN</a></li>
-                        <li><a href="#" class="dropdown-item">Switch to US</a></li>
-                        <li><a href="#" class="dropdown-item">Switch to VC</a></li>
-                      </ul> --}}
                     </div>
                   </div>
               </div>

@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\User;
 use App\Skills;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class ParticularsController extends Controller
 {
@@ -40,7 +44,7 @@ class ParticularsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -74,7 +78,51 @@ class ParticularsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'avator' => 'required|image|mimes:jpeg,jpg,png,webp',
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'dob' => 'required',
+        ]);
+
+        $staff = User::find($id);
+
+        $file = $request->file('avator');
+         if (isset($file)) {
+           $curentdate = Carbon::now()->toDateString();
+                $imagename =  $curentdate . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
+                if(fileExists('app/public/images/avator/'.$staff->avator)){
+                    unlink('app/public/images/avator/'.$staff->avator);
+                }
+                $file->move(public_path('app/public/images/avator'), $imagename);
+         }else{
+          $imagename = $staff->avator;
+         }
+
+         if(!(Str::contains($request->email, 'muni.ac.ug'))){
+            alert()->warning('Warning','Email must be valid!');
+            return redirect()->back()->withInput();
+         }else{
+            $staff->avator = $imagename;
+            $staff->name = $request->name;
+            $staff->email = $request->email;
+            $staff->phone = $request->phone;
+            $staff->dob = $request->dob;
+            $save = $staff->save();
+
+
+            if ($save) {
+                Alert::success('Updated', 'Staff successfully updated!');
+
+                return redirect()->back();
+                }else{
+                    Alert::warning('Update Failed', 'Staff failed to be updated!');
+
+                    return redirect()->back();
+            }
+        }
     }
 
     /**

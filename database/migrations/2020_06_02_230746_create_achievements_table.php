@@ -18,9 +18,10 @@ class CreateAchievementsTable extends Migration
             $table->string('appraisee_id')->nullable();
             $table->string('appraiser_id')->nullable();
             $table->unsignedBigInteger('job_desc_id')->nullable();
-            $table->string('min_performance_level')->nullable();
+            $table->text('min_performance_level')->nullable();
             $table->string('comment')->nullable();
             $table->string('score')->nullable();
+            $table->enum('status', ['pending', 'rejected', 'approved']);
             $table->string('date_of_completion')->nullable();
             $table->timestamps();
 

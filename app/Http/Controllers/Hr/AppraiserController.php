@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Hr;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use phpDocumentor\Reflection\Types\Null_;
 
 class AppraiserController extends Controller
@@ -13,7 +13,7 @@ class AppraiserController extends Controller
     // appraisee list
     public function list()
     {
-        $appraisers = User::where('is_appraiser', '1')->paginate(5);
+        $appraisers = User::where('is_appraiser', '1')->where('status', '1')->paginate(5);
         return view('hr.pages.appraisers.list', compact('appraisers'));
     }
 
@@ -52,7 +52,7 @@ class AppraiserController extends Controller
     // appraisee appraisees
     public function appraisees($id)
     {
-        $staff = User::where('appraiser_status', NULL)->where('staff_id', '!=', $id)->get();
+        $staff = User::where('appraiser_status', NULL)->where('status', '1')->where('staff_id', '!=', $id)->get();
         $appraisees = User::where('appraiser_status', $id)->paginate(5);
         $currentStaff = User::findOrfail($id);
         return view('hr.pages.appraisers.manage', compact('appraisees', 'id', 'staff', 'currentStaff'));

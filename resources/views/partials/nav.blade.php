@@ -11,7 +11,7 @@
           <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a class="nav-link text-light" href="{{ url('/') }}">Dashboard</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="{{ route('particulars.index') }}">Particulars</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#">Assessment</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('achievement-assessment') }}">Achivement Assessment</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="#">Appraisals</a></li>
           </ul>
           <ul class="navbar-nav ml-auto">

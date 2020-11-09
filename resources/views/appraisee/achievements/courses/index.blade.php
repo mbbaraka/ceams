@@ -54,12 +54,11 @@ Courses Taught
                           </div>
                         </div>
                         </tr>
-                        
+
                       @endforeach
                     </table>
               </div>
               </div>
-
           </div>
         </div>
       </div>
@@ -83,5 +82,5 @@ Courses Taught
       </div>
     </div>
 
-    
+
 @endsection

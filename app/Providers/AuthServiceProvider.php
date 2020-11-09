@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         /* define a hr user role */
         Gate::define('isHR', function($user) {
-            return $user->role ==='1';
+            return $user->role ==='HR';
          });
 
          /* define a appraiser user role */
@@ -37,27 +37,22 @@ class AuthServiceProvider extends ServiceProvider
 
          /* define a hod role */
          Gate::define('isHod', function($user) {
-             return $user->role == 'hod';
+             return $user->role == 'HOD';
          });
 
-         /* define a appraiser user role */
+         /* define a dean user role */
          Gate::define('isDean', function($user) {
-            return $user->role == 'dean';
+            return $user->role == 'Dean';
         });
 
         /* define a us user role */
         Gate::define('isUs', function($user) {
-            return $user->role == 'us';
-        });
-
-        /* define a dean user role */
-        Gate::define('isDean', function($user) {
-            return $user->role == 'dean';
+            return $user->role == 'US';
         });
 
         /* define a Vc user role */
         Gate::define('isVc', function($user) {
-            return $user->role == 'vc';
+            return $user->role == 'VC';
         });
     }
 }

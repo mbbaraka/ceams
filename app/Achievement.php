@@ -12,7 +12,7 @@ class Achievement extends Model
     }
 
     public function description()
-    {    	
-    	return $this->belongsTo(JobDescription::class);
+    {
+    	return $this->belongsTo('App\JobDescription', '');
     }
 }

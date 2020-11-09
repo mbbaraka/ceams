@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,17 +24,23 @@ Auth::routes();
 // Route::get('page/{slug}', 'WebsiteController@page')->name('page');
 // Route::get('contact', 'WebsiteController@showContactForm')->name('contact.show');
 // Route::post('contact', 'WebsiteController@submitContactForm')->name('contact.submit');
-Route::get('/send-mail', function () {
+// Route::get('/send-mail', function () {
 
-    Mail::to('newuser@example.com')->send(new Samplemail());
+//     Mail::to('newuser@example.com')->send(new Samplemail());
 
-    return 'A message has been sent to Mailtrap!';
+//     return 'A message has been sent to Mailtrap!';
 
-});
+// });
 Route::get('/pending-registration', 'HomeController@pending')->name('pending');
 
 Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], function () {
-	Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/', 'HomeController@index')->name('index');
+    // notoficationss
+    Route::get('/notifications/{id}/marked', 'HomeController@markRead')->name('mark-as-read');
+    Route::get('/notifications/{id}/delete', 'HomeController@deleteNotification')->name('notification.delete');
+    Route::get('/notifications/{id}/view', 'HomeController@viewNotification')->name('notification.view');
+
+
     Route::resource('studies', 'StudyController', ['except' => 'create', 'edit', 'show']);
     Route::resource('courses', 'CourseController', ['except' => 'create', 'edit', 'show']);
     Route::resource('community', 'CommunityServiceController', ['except' => 'create', 'edit', 'show']);
@@ -49,19 +56,30 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::resource('community-service', 'CommunityServiceController', ['except' => 'create', 'edit', 'show']);
     // Route::resource('responsibilities', 'AdministrativeController', ['except' => 'create', 'edit', 'show']);
 
+    // Achievement Assessment
+    Route::get('/achievement-assessment', 'AchievementController@index')->name('achievement-assessment');
+    Route::post('/achievement-assessment/{id}/store', 'AchievementController@storeTarget')->name('achievement-assessment.store');
+    Route::get('/achievement-assessment/{id}/reset', 'AchievementController@resetTarget')->name('achievement-assessment.reset');
 
+    // Appraiser routes
+    Route::get('/appraiser', 'AppraiserController@index')->name('achievement-assessment');
+    Route::get('/apraisee-list', 'AppraiserController@listAppraisee')->name('appraisee-list');
+    Route::get('/appraiser/{id}/staff', 'AppraiserController@staff')->name('appraiser-staff');
+    Route::get('/appraiser/{id}/achievements', 'AppraiserController@achievement')->name('staff-achievements');
+    Route::get('/appraiser', 'AppraiserController@index')->name('achievement-assessment');
 
 });
 
 
 //Hr routes
-Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, 1', 'namespace' => 'Hr'], function (){
+Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, hr', 'namespace' => 'Hr'], function (){
     Route::get('/', 'HomeController@index')->name('hr.index');
 
     // MAnage staffs
     Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
     Route::get('/staffs/new', 'StaffController@createStaff')->name('hr.staffs.create');
     Route::post('/staffs/create', 'StaffController@store')->name('staff-store');
+    Route::post('/staffs/{id}/edit', 'StaffController@editStaff')->name('hr.staffs.edit');
     Route::post('/staffs/{id}/delete', 'StaffController@deleteStaff')->name('hr.staffs.delete');
     Route::get('/appraisals', 'PageController@appraisals')->name('hr.appraisals');
     Route::get('/staff/roles', 'PageController@roles')->name('hr.roles');

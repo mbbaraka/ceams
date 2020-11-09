@@ -188,14 +188,14 @@ Home
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-10">
                           <div class="btn-group">
-                              <button class="btn btn-secondary">Cancel</button>
+                              <button class="btn btn-secondary" type="reset">Cancel</button>
                               <button type="submit" class="btn btn-primary">Submit</button>
                           </div>
                       </div>
                     </div>
                   </form>
             </div>
-        </div>
+          </div>
       </div>
     </div>
   </div>

@@ -30,8 +30,7 @@ Login
                            <div class="text-center">
                              <img src="{{config('app.url')}}/logo.png" class="img-fluid">
                            </div>
-                           <div class="container-fluid">
-                                                        </div>
+                            <div class="container-fluid"></div>
                             <form method="POST" action="{{ route('login') }}">
                               @csrf
                               <div class="input-group mb-3">

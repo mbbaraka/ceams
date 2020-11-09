@@ -18,7 +18,6 @@
     @include('appraiser.partials.nav')
 
     @include('appraiser.partials.breadcrub')
-    @include('appraiser.partials.flashmessage');
     <section id="main">
       @yield('content')
     </section>

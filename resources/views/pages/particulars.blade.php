@@ -35,7 +35,6 @@ Particulars
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
               </div>
               <!-- /.card-body -->
             </div>
@@ -48,33 +47,49 @@ Particulars
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                <strong><i class="fas fa-user mr-1"></i> Staff ID : </strong>
 
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ $particulars->staff_id }}
+                </span>
+                <hr>
+                <strong><i class="fas fa-landmark mr-1"></i> Department : </strong>
 
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ $particulars->department }}
+                </span>
+                <hr>
+                <strong><i class="fas fa-city mr-1"></i> Faculty : </strong>
+
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ $particulars->faculty }}
+                </span>
+                <hr>
+                <strong><i class="fas fa-briefcase mr-1"></i> Job Title : </strong>
+
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ $particulars->job_title }}
+                </span>
+                <hr>
+                <strong><i class="fas fa-hand-holding-usd mr-1"></i> Salary Scale : </strong>
+
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ $particulars->salary_Scale }}
+                </span>
+                <hr>
+                <strong><i class="fa fa-server mr-1"></i> Terms of Service : </strong>
+
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ $particulars->terms_of_service }}
+                </span>
+                <hr>
+                <strong><i class="fas fa-calendar-alt mr-1"></i> Appointment Date : </strong>
+
+                <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
+                  {{ date('d M, Y', strtotime($particulars->appointment_date)) }}
+                </span>
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  @foreach($skills as $skill)
-                  <span class="tag tag-danger">{{ $skill->skill }}</span>
-                  @endforeach
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
               </div>
               <!-- /.card-body -->
             </div>
@@ -92,88 +107,80 @@ Particulars
                 <div class="tab-content">
 
                   <div class="tab-pane active" id="overview">
-                    <form class="form-horizontal">
+                    {!! Form::open(['route' =>  ['particulars.update', $particulars->staff_id], 'method' => 'put', 'enctype' => 'multipart/form-data']) !!}
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Avator</label>
                         <div class="col-sm-10">
-                          <input type="file" name="avator" class="form-control" id="avator">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Staff ID</label>
-                        <div class="col-sm-10">
-                          <input type="text" disabled class="form-control" id="email" value="{{$particulars->staff_id}}" placeholder="Staff ID" name="email">
+                          <input type="file" name="avator" class="form-control @error('avator') is-invalid @enderror " id="avator">
+                          @error('avator')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="email" value="{{$particulars->email}}" placeholder="Email" name="email">
+                          <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" value="{{$particulars->email}}" placeholder="Email" name="email">
+                          @error('email')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Phone</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="phone" value="{{$particulars->phone}}" placeholder="Phone" name="phone">
+                          <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" value="{{$particulars->phone}}" placeholder="Phone" name="phone">
+                          @error('phone')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Date of Birth</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="dob" value="{{$particulars->dob}}" placeholder="Date of Birth" name="dob">
+                          <input type="date" class="form-control @error('dob') is-invalid @enderror" id="dob" value="{{$particulars->dob}}" placeholder="Date of Birth" name="dob">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Department</label>
-                        <div class="col-sm-10">
-                          <input type="text" disabled class="form-control" value="{{$particulars->department}}" id="department" name="department" placeholder="Department">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Faculty</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" value="{{$particulars->faculty}}" disabled name="faculty" id="faculty" placeholder="Faculty">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Job Title</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" value="{{$particulars->job_title}}" disabled name="job-title" id="job-title" placeholder="Job Title">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Salary Scale</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" value="{{$particulars->salary_scale}}" disabled id="salary-scale" name="salary-scale" placeholder="Salary Scale" name="phone">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Appointment Date</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" value="{{$particulars->appointment_date}}" disabled id="appointment-date" name="appointment-date" placeholder="Appointment Date">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Terms of Service</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" disabled value="{{$particulars->terms_of_service}}" name="terms-of-service" id="terms-of-service" placeholder="Terms of Service">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Other Role</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" disabled value="{{$particulars->role}}" name="other-role" id="other-role" placeholder="Other Role">
-                        </div>
+                      <p>
+                          <a data-toggle="collapse" href="#changePassword" aria-expanded="false"
+                                  aria-controls="changePassword">
+                              Change Password
+                          </a>
+                      </p>
+                      <div class="collapse" id="changePassword">
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" name="password">
+                              @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="confirm-password" class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password" name="confirm_password">
+                            </div>
+                          </div>
                       </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                         	<div class="btn-group">
-                        		<button class="btn btn-secondary">Back</button>
+                        		<button class="btn btn-secondary" type="reset">Cancel</button>
                           		<button type="submit" class="btn btn-primary">Update</button>
                         	</div>
                         </div>
                       </div>
-                    </form>
+                     {!! Form::close() !!}
                   </div>
                   <!-- /.tab-pane -->
                 </div>

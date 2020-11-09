@@ -83,7 +83,7 @@ Home
                                                 <div class="row justify-content-center">
                                                     <select class="form-control col-md-7" name="role">
                                                         @foreach ($roles as $role)
-                                                            <option value="{{ $role->id }}">
+                                                            <option value="{{ $role->role }}">
                                                                 {{ $role->role }}
                                                             </option>
                                                         @endforeach
