@@ -87,8 +87,8 @@ class StaffController extends Controller
             $staff->salary_scale = $request->salary_scale;
             $staff->appointment_date = $request->appointment_date;
             $staff->terms_of_service = $request->terms_of_service;
-            $staff->status = 1;
-            $staff->is_appraiser = 0;
+            $staff->status = '1';
+            $staff->is_appraiser = '0';
             $save = $staff->save();
 
 
