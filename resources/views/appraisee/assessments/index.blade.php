@@ -115,7 +115,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                   <label for="target">Performance Targets</label>
-                                                  <textarea name="target" id="target" cols="30" rows="5" class="form-control">{{ $descriptions->description }}</textarea>
+                                                  <textarea name="target" id="target" cols="30" rows="5" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
