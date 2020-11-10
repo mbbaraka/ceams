@@ -62,7 +62,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::get('/achievement-assessment/{id}/reset', 'AchievementController@resetTarget')->name('achievement-assessment.reset');
 
     // Appraiser routes
-    Route::get('/appraiser', 'AppraiserController@index')->name('achievement-assessment');
+    Route::get('/appraiser', 'AppraiserController@index')->name('appraiser.index');
     Route::get('/apraisee-list', 'AppraiserController@listAppraisee')->name('appraisee-list');
     Route::get('/appraiser/{id}/staff', 'AppraiserController@staff')->name('appraiser-staff');
     Route::get('/appraiser/{id}/achievements', 'AppraiserController@achievement')->name('staff-achievements');
@@ -79,6 +79,17 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::get('/appraiser/{staff}/recommendations/remove', 'AppraiserController@removeRecommendation')->name('recommendations.remove');
 
     Route::get('/appraiser/{staff}/action-plan', 'AppraiserController@actionPlan')->name('action-plan');
+
+
+    // Comments
+    Route::get('/comments', 'CommentController@index')->name('comments.index');
+
+    // Appraisals
+    Route::get('/appraisal-form', 'AppraisalController@index')->name('appraisal.index');
+    Route::get('/appraisal-form-view/{id}', 'AppraisalController@view')->name('appraisal.view');
+
+    // print to pdf
+    Route::get('/print-to-pdf', 'HomeController@printPDF')->name('print');
 });
 
 

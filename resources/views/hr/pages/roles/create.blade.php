@@ -29,6 +29,7 @@ Home
                 <div class="form-group row">
                     <div class="col-sm-8">
                       <input type="text" name="role" placeholder="Role" class="form-control @error('role') is-invalid @enderror" id="role">
+                      <small class="text-danger" style="font-size: 10px;">Use Abbreviations and in uppercase. E.g DEAN for Dean of Students, HR for Human resource</small>
                       @error('role')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>

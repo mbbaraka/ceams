@@ -24,24 +24,9 @@
                         Switch to HR
                         <span class="caret"></span>
                       </a>
-                      @elsecan('isHod')
-                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
-                        Switch to HOD
-                        <span class="caret"></span>
-                      </a>
-                      @elsecan('isDean')
-                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
-                        Switch to Dean
-                        <span class="caret"></span>
-                      </a>
-                      @elsecan('isUs')
-                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
-                        Switch to US
-                        <span class="caret"></span>
-                      </a>
-                      @elsecan('isVc')
-                      <a href="{{ route('hr.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
-                        Switch to VC
+                      @elsecan('isAppraiser', Auth::user()->role)
+                      <a href="{{ route('appraiser.index') }}" class="btn border-custom btn-light text-custom dropdown-toggle">
+                        Switch to Appraiser
                         <span class="caret"></span>
                       </a>
                       @endcan

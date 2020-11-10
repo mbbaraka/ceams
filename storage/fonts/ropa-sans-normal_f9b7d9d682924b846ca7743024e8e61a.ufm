@@ -1,0 +1,241 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/PhenX/php-font-lib
+EncodingScheme FontSpecific
+Copyright Copyright 2013 The Ropa Sans Project Authors (nikoltchev@lettersoup.de), with Reserved Font Name "Ropa Sans".
+FontName Ropa Sans
+FontSubfamily Regular
+UniqueID 1.100;UKWN;RopaSans-Regular
+FullName Ropa Sans Regular
+Version Version 1.100
+PostScriptName RopaSans-Regular
+LicenseURL http://scripts.sil.org/OFL
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 841
+Descender -231
+FontBBox -123 -231 1210 865
+StartCharMetrics 226
+U 0 ; WX 0 ; N NULL ; G 1
+U 13 ; WX 180 ; N CR ; G 2
+U 32 ; WX 180 ; N space ; G 3
+U 33 ; WX 211 ; N exclam ; G 149
+U 34 ; WX 315 ; N quotedbl ; G 155
+U 35 ; WX 556 ; N numbersign ; G 151
+U 36 ; WX 441 ; N dollar ; G 183
+U 37 ; WX 860 ; N percent ; G 197
+U 38 ; WX 540 ; N ampersand ; G 200
+U 39 ; WX 175 ; N quotesingle ; G 156
+U 40 ; WX 231 ; N parenleft ; G 164
+U 41 ; WX 231 ; N parenright ; G 165
+U 42 ; WX 410 ; N asterisk ; G 142
+U 43 ; WX 390 ; N plus ; G 186
+U 44 ; WX 220 ; N comma ; G 147
+U 45 ; WX 350 ; N hyphen ; G 168
+U 46 ; WX 223 ; N period ; G 152
+U 47 ; WX 255 ; N slash ; G 158
+U 48 ; WX 500 ; N zero ; G 125
+U 49 ; WX 312 ; N one ; G 126
+U 50 ; WX 387 ; N two ; G 127
+U 51 ; WX 389 ; N three ; G 128
+U 52 ; WX 421 ; N four ; G 129
+U 53 ; WX 441 ; N five ; G 130
+U 54 ; WX 475 ; N six ; G 131
+U 55 ; WX 378 ; N seven ; G 132
+U 56 ; WX 460 ; N eight ; G 133
+U 57 ; WX 475 ; N nine ; G 134
+U 58 ; WX 221 ; N colon ; G 146
+U 59 ; WX 221 ; N semicolon ; G 157
+U 60 ; WX 390 ; N less ; G 192
+U 61 ; WX 420 ; N equal ; G 190
+U 62 ; WX 390 ; N greater ; G 191
+U 63 ; WX 395 ; N question ; G 153
+U 64 ; WX 930 ; N at ; G 199
+U 65 ; WX 532 ; N A ; G 4
+U 66 ; WX 528 ; N B ; G 12
+U 67 ; WX 476 ; N C ; G 13
+U 68 ; WX 571 ; N D ; G 15
+U 69 ; WX 485 ; N E ; G 17
+U 70 ; WX 460 ; N F ; G 22
+U 71 ; WX 555 ; N G ; G 23
+U 72 ; WX 580 ; N H ; G 24
+U 73 ; WX 235 ; N I ; G 25
+U 74 ; WX 287 ; N J ; G 30
+U 75 ; WX 525 ; N K ; G 31
+U 76 ; WX 450 ; N L ; G 32
+U 77 ; WX 699 ; N M ; G 33
+U 78 ; WX 582 ; N N ; G 34
+U 79 ; WX 576 ; N O ; G 36
+U 80 ; WX 511 ; N P ; G 44
+U 81 ; WX 576 ; N Q ; G 46
+U 82 ; WX 540 ; N R ; G 47
+U 83 ; WX 461 ; N S ; G 48
+U 84 ; WX 525 ; N T ; G 49
+U 85 ; WX 576 ; N U ; G 50
+U 86 ; WX 526 ; N V ; G 55
+U 87 ; WX 848 ; N W ; G 56
+U 88 ; WX 519 ; N X ; G 57
+U 89 ; WX 491 ; N Y ; G 58
+U 90 ; WX 480 ; N Z ; G 60
+U 91 ; WX 260 ; N bracketleft ; G 162
+U 92 ; WX 255 ; N backslash ; G 143
+U 93 ; WX 260 ; N bracketright ; G 163
+U 94 ; WX 495 ; N asciicircum ; G 209
+U 95 ; WX 610 ; N underscore ; G 159
+U 96 ; WX 227 ; N grave ; G 216
+U 97 ; WX 449 ; N a ; G 61
+U 98 ; WX 471 ; N b ; G 69
+U 99 ; WX 390 ; N c ; G 70
+U 100 ; WX 476 ; N d ; G 72
+U 101 ; WX 447 ; N e ; G 74
+U 102 ; WX 308 ; N f ; G 79
+U 103 ; WX 476 ; N g ; G 80
+U 104 ; WX 481 ; N h ; G 81
+U 105 ; WX 225 ; N i ; G 82
+U 106 ; WX 225 ; N j ; G 88
+U 107 ; WX 427 ; N k ; G 89
+U 108 ; WX 225 ; N l ; G 90
+U 109 ; WX 741 ; N m ; G 91
+U 110 ; WX 486 ; N n ; G 92
+U 111 ; WX 472 ; N o ; G 94
+U 112 ; WX 475 ; N p ; G 102
+U 113 ; WX 476 ; N q ; G 104
+U 114 ; WX 325 ; N r ; G 105
+U 115 ; WX 382 ; N s ; G 106
+U 116 ; WX 338 ; N t ; G 108
+U 117 ; WX 480 ; N u ; G 109
+U 118 ; WX 432 ; N v ; G 114
+U 119 ; WX 678 ; N w ; G 115
+U 120 ; WX 421 ; N x ; G 116
+U 121 ; WX 436 ; N y ; G 117
+U 122 ; WX 401 ; N z ; G 120
+U 123 ; WX 256 ; N braceleft ; G 160
+U 124 ; WX 225 ; N bar ; G 207
+U 125 ; WX 256 ; N braceright ; G 161
+U 126 ; WX 390 ; N asciitilde ; G 194
+U 160 ; WX 180 ; N nbspace ; G 225
+U 161 ; WX 211 ; N exclamdown ; G 150
+U 162 ; WX 390 ; N cent ; G 181
+U 163 ; WX 397 ; N sterling ; G 184
+U 164 ; WX 470 ; N currency ; G 182
+U 165 ; WX 455 ; N yen ; G 185
+U 166 ; WX 225 ; N brokenbar ; G 208
+U 167 ; WX 418 ; N section ; G 202
+U 168 ; WX 331 ; N dieresis ; G 214
+U 169 ; WX 646 ; N copyright ; G 203
+U 170 ; WX 469 ; N ordfeminine ; G 123
+U 171 ; WX 488 ; N guillemotleft ; G 170
+U 172 ; WX 390 ; N logicalnot ; G 195
+U 173 ; WX 600 ; N uni00AD ; G 169
+U 174 ; WX 528 ; N registered ; G 204
+U 175 ; WX 275 ; N macron ; G 217
+U 176 ; WX 390 ; N degree ; G 206
+U 177 ; WX 390 ; N plusminus ; G 193
+U 178 ; WX 400 ; N uni00B2 ; G 136
+U 179 ; WX 400 ; N uni00B3 ; G 137
+U 180 ; WX 227 ; N acute ; G 211
+U 181 ; WX 480 ; N uni00B5 ; G 196
+U 182 ; WX 546 ; N paragraph ; G 201
+U 183 ; WX 221 ; N periodcentered ; G 144
+U 184 ; WX 204 ; N cedilla ; G 212
+U 185 ; WX 400 ; N uni00B9 ; G 135
+U 186 ; WX 492 ; N ordmasculine ; G 124
+U 187 ; WX 488 ; N guillemotright ; G 171
+U 188 ; WX 1000 ; N onequarter ; G 140
+U 189 ; WX 1000 ; N onehalf ; G 139
+U 190 ; WX 1000 ; N threequarters ; G 141
+U 191 ; WX 395 ; N questiondown ; G 154
+U 192 ; WX 532 ; N Agrave ; G 8
+U 193 ; WX 532 ; N Aacute ; G 5
+U 194 ; WX 532 ; N Acircumflex ; G 6
+U 195 ; WX 532 ; N Atilde ; G 10
+U 196 ; WX 532 ; N Adieresis ; G 7
+U 197 ; WX 532 ; N Aring ; G 9
+U 198 ; WX 772 ; N AE ; G 11
+U 199 ; WX 476 ; N Ccedilla ; G 14
+U 200 ; WX 485 ; N Egrave ; G 21
+U 201 ; WX 485 ; N Eacute ; G 18
+U 202 ; WX 485 ; N Ecircumflex ; G 19
+U 203 ; WX 485 ; N Edieresis ; G 20
+U 204 ; WX 235 ; N Igrave ; G 29
+U 205 ; WX 235 ; N Iacute ; G 26
+U 206 ; WX 235 ; N Icircumflex ; G 27
+U 207 ; WX 235 ; N Idieresis ; G 28
+U 208 ; WX 576 ; N Eth ; G 16
+U 209 ; WX 582 ; N Ntilde ; G 35
+U 210 ; WX 576 ; N Ograve ; G 40
+U 211 ; WX 576 ; N Oacute ; G 37
+U 212 ; WX 576 ; N Ocircumflex ; G 38
+U 213 ; WX 576 ; N Otilde ; G 42
+U 214 ; WX 576 ; N Odieresis ; G 39
+U 215 ; WX 390 ; N multiply ; G 188
+U 216 ; WX 576 ; N Oslash ; G 41
+U 217 ; WX 576 ; N Ugrave ; G 54
+U 218 ; WX 576 ; N Uacute ; G 51
+U 219 ; WX 576 ; N Ucircumflex ; G 52
+U 220 ; WX 576 ; N Udieresis ; G 53
+U 221 ; WX 491 ; N Yacute ; G 59
+U 222 ; WX 499 ; N Thorn ; G 45
+U 223 ; WX 483 ; N germandbls ; G 107
+U 224 ; WX 449 ; N agrave ; G 65
+U 225 ; WX 449 ; N aacute ; G 62
+U 226 ; WX 449 ; N acircumflex ; G 63
+U 227 ; WX 449 ; N atilde ; G 67
+U 228 ; WX 449 ; N adieresis ; G 64
+U 229 ; WX 449 ; N aring ; G 66
+U 230 ; WX 690 ; N ae ; G 68
+U 231 ; WX 390 ; N ccedilla ; G 71
+U 232 ; WX 447 ; N egrave ; G 78
+U 233 ; WX 447 ; N eacute ; G 75
+U 234 ; WX 447 ; N ecircumflex ; G 76
+U 235 ; WX 447 ; N edieresis ; G 77
+U 236 ; WX 225 ; N igrave ; G 87
+U 237 ; WX 225 ; N iacute ; G 84
+U 238 ; WX 225 ; N icircumflex ; G 85
+U 239 ; WX 225 ; N idieresis ; G 86
+U 240 ; WX 487 ; N eth ; G 73
+U 241 ; WX 486 ; N ntilde ; G 93
+U 242 ; WX 472 ; N ograve ; G 98
+U 243 ; WX 472 ; N oacute ; G 95
+U 244 ; WX 472 ; N ocircumflex ; G 96
+U 245 ; WX 472 ; N otilde ; G 100
+U 246 ; WX 472 ; N odieresis ; G 97
+U 247 ; WX 390 ; N divide ; G 189
+U 248 ; WX 472 ; N oslash ; G 99
+U 249 ; WX 480 ; N ugrave ; G 113
+U 250 ; WX 480 ; N uacute ; G 110
+U 251 ; WX 480 ; N ucircumflex ; G 111
+U 252 ; WX 480 ; N udieresis ; G 112
+U 253 ; WX 436 ; N yacute ; G 118
+U 254 ; WX 475 ; N thorn ; G 103
+U 255 ; WX 436 ; N ydieresis ; G 119
+U 305 ; WX 225 ; N dotlessi ; G 83
+U 338 ; WX 756 ; N OE ; G 43
+U 339 ; WX 718 ; N oe ; G 101
+U 700 ; WX 183 ; N uni02BC ; G 210
+U 710 ; WX 320 ; N circumflex ; G 213
+U 730 ; WX 282 ; N ring ; G 218
+U 732 ; WX 320 ; N tilde ; G 219
+U 8211 ; WX 610 ; N endash ; G 167
+U 8212 ; WX 710 ; N emdash ; G 166
+U 8216 ; WX 217 ; N quoteleft ; G 177
+U 8217 ; WX 217 ; N quoteright ; G 178
+U 8218 ; WX 217 ; N quotesinglbase ; G 179
+U 8220 ; WX 362 ; N quotedblleft ; G 175
+U 8221 ; WX 362 ; N quotedblright ; G 176
+U 8222 ; WX 362 ; N quotedblbase ; G 174
+U 8226 ; WX 235 ; N bullet ; G 145
+U 8230 ; WX 553 ; N ellipsis ; G 148
+U 8249 ; WX 318 ; N guilsinglleft ; G 172
+U 8250 ; WX 318 ; N guilsinglright ; G 173
+U 8260 ; WX 380 ; N fraction ; G 138
+U 8364 ; WX 454 ; N Euro ; G 180
+U 8482 ; WX 773 ; N trademark ; G 205
+U 8722 ; WX 390 ; N minus ; G 187
+U 8725 ; WX 255 ; N uni2215 ; G 198
+EndCharMetrics
+EndFontMetrics

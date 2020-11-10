@@ -12,7 +12,17 @@
           <li class="nav-item"><a class="nav-link text-light" href="{{ url('/') }}">Dashboard</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="{{ route('particulars.index') }}">Particulars</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="{{ route('achievement-assessment') }}">Achivement Assessment</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="#">Appraisals</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('appraisal.index') }}">Appraisal Form</a></li>
+            @can('isDean', Auth::user()->role)
+             <li class="nav-item"><a class="nav-link text-light" href="{{ route('comments.index') }}">Comments</a></li>
+            @elsecan('isUs', Auth::user()->role)
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('comments.index') }}">Comments</a></li>
+            @elsecan('isHod', Auth::user()->role)
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('comments.index') }}">Comments</a></li>
+            @elsecan('isVc', Auth::user()->role)
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('comments.index') }}">Comments</a></li>
+            @endcan()
+
           </ul>
           <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link text-light" href="#">Hi,</a></li>

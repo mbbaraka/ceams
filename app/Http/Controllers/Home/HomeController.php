@@ -7,6 +7,7 @@ use App\Study;
 use App\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -70,5 +71,20 @@ class HomeController extends Controller
             toast('Deleted Notification', 'success');
             return redirect()->back();
         }
+    }
+
+    public function printPDF()
+    {
+    //     view()->share('employee',$data);
+    //   $pdf = PDF::loadView('pdf_view', $data);
+
+    //   // download PDF file with download method
+    //   return $pdf->download('pdf_file.pdf');
+        view()->share('welcome');
+
+        $pdf =PDF::loadView('appraisals.index');
+
+        return $pdf->download('hello.pdf');
+
     }
 }

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\HrUserRegistrationMail;
 
 class StaffController extends Controller
 {
@@ -193,11 +195,12 @@ class StaffController extends Controller
         );
 
         $role = new Role();
-        $role->role = Str::lower($request->role);
+        $role->role = Str::upper($request->role);
         $save = $role->save();
 
         if($save)
         {
+            // Mail::to('markbrightbaraka@gmail.com')->send(new HrUserRegistrationMail());
             Alert::success('Success', 'Role created successfully');
             return redirect()->back();
         }

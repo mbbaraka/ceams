@@ -42,7 +42,7 @@ class AuthServiceProvider extends ServiceProvider
 
          /* define a dean user role */
          Gate::define('isDean', function($user) {
-            return $user->role == 'Dean';
+            return $user->role == 'DEAN';
         });
 
         /* define a us user role */

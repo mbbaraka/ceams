@@ -115,4 +115,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role', 'role');
     }
 
+    public function appraiser()
+    {
+        return $this->belongsTo(User::class, 'appraiser_status');
+    }
+
 }
