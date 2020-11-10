@@ -221,7 +221,7 @@ class StaffController extends Controller
         return view('hr.pages.roles.assign', compact('staffs', 'roles'));
     }
 
-    public function assignStoreRole(Request $request, $id, $staff)
+    public function assignStoreRole(Request $request, $id)
     {
         $assign = User::findOrFail($id);
         $assign->role = $request->role;
