@@ -12,7 +12,7 @@ class JobDescription extends Model
         return $this->belongsTo(Jobs::class);
     }
 
-    public function achievements()
+    public function achievementss()
     {
         return $this->HasMany('App\Achievement', 'job_desc_id');
     }

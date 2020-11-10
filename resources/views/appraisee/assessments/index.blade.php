@@ -35,24 +35,18 @@
                       <td>{!! $descriptions->description !!}</td>
                       <td>How will results be achieved</td>
                       <td>
-                          @if (count($descriptions->achievements) >0)
-                          @foreach ($descriptions->achievements as $achievement)
-                            @if ($descriptions->id == $achievement->job_desc_id)
-                                <span>{{ $achievement->min_performance_level }}</span>
-                                @if ($achievement->status == "pending")
-                                <span class="badge badge-primary">Pending</span>
-                                @elseif($achievement->status == "pending")
-                                    <span class="badge badge-danger">Rejected</span>
-                                @elseif($achievement->status == "pending")
-                                    <span class="badge badge-success">Approved</span>
-                                @endif
-                            @else
-                            <i>Not yet added <a data-toggle="modal" href="#editModal{{ $descriptions->id }}">Click to add</a></i>
+                        @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
+                            {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }}
+                            @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "pending")
+                            <span class="float-right badge badge-primary">Pending</span>
+                            @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "rejected")
+                                <span class="float-right badge badge-danger">Rejected</span>
+                            @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "approved")
+                                <span class="float-right badge badge-success">Approved</span>
                             @endif
-                          @endforeach
-                          @else
+                        @else
                             <span>Not yet added. <a data-toggle="modal" href="#editModal{{ $descriptions->id }}">Click to add</a></span>
-                          @endif
+                        @endif
                       </td>
                       <td>
                         <div class="btn-group">

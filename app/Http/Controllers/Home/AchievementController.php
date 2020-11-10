@@ -18,7 +18,7 @@ class AchievementController extends Controller
         $user = User::where('staff_id', Auth::user()->staff_id)->first();
         $title = Jobs::where('title', $user->job_title)->first();
         $description = JobDescription::where('job_id', $title->id)->get();
-        $achievements = Achievement::where('appraisee_id', Auth::user()->staff_id)->get();
+        $achievements = Achievement::where('appraisee_id', $user->staff_id)->get();
         return view ('appraisee.assessments.index', compact('description', 'achievements'));
     }
 
@@ -55,7 +55,7 @@ class AchievementController extends Controller
 
     public function resetTarget($id)
     {
-        $target = Achievement::where('job_desc_id', $id)->where('appraisee_id', Auth::user()->staff_id)->first();
+        $target = Achievement::where('id', $id)->where('appraisee_id', Auth::user()->staff_id)->first();
         $reset = $target->delete();
 
         if($reset){

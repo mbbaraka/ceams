@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Workshops;
 use App\Notification;
+use App\Recommendation;
 use RealRashid\SweetAlert\Facades\Alert;
+use UserSeeder;
 
 class AppraiserController extends Controller
 {
@@ -49,8 +51,17 @@ class AppraiserController extends Controller
     {
         $staff = User::find($id)->first();
         $title = Jobs::where('title', $staff->job_title)->first();
+
+        $score_result = 0;
+        $key_results = Achievement::where('appraisee_id', $staff->staff_id)->get();
+
+        foreach ($key_results as $score) {
+            $score_result += $score->score;
+            $average_score = $score_result/count($key_results);
+            $average_achievement = ($average_score * 100) / 5;
+        }
         $achievements = Achievement::where('appraisee_id', $id)->get();
-        return view('appraiser.pages.achievement-assessment', compact('staff', 'title', 'achievements'));
+        return view('appraiser.pages.achievement-assessment', compact('staff', 'title', 'achievements', 'average_achievement'));
     }
 
     public function updateAchievement(Request $request, $id)
@@ -119,7 +130,15 @@ class AppraiserController extends Controller
     {
         $staff = User::find($id);
         $competences = Competence::paginate(5);
-        return view('appraiser.pages.core-competence', compact('staff', 'competences'));
+        $score_competence = 0;
+
+        $score_level = CompetenceAssessment::where('appraisee_id', $staff->staff_id)->get();
+        foreach ($score_level as $score) {
+            $score_competence += $score->evaluation_outcome;
+            $average_competence = $score_competence/count($score_level);
+            $average_competence = ($average_competence * 100) / 5;
+        }
+        return view('appraiser.pages.core-competence', compact('staff', 'competences', 'average_competence'));
     }
 
     public function editCompetence(Request $request)
@@ -142,5 +161,75 @@ class AppraiserController extends Controller
             Alert::success('Updated', 'Staff Evaluated successfully');
             return redirect()->back();
         }
+    }
+
+    //Recommendations
+    public function recommendations($staffs)
+    {
+        $score_result = 0;
+        $score_competence = 0;
+        $key_results = Achievement::where('appraisee_id', $staffs)->get();
+
+        foreach ($key_results as $score) {
+            $score_result += $score->score;
+            $average_score = $score_result/count($key_results);
+            $average_score = ($average_score * 100) / 5;
+        }
+
+        $competence = CompetenceAssessment::where('appraisee_id', $staffs)->get();
+        foreach ($competence as $score) {
+            $score_competence += $score->evaluation_outcome;
+            $average_competence = $score_competence/count($competence);
+            $average_competence = ($average_competence * 100) / 5;
+        }
+
+
+        $average = ($average_score + $average_competence) / 2;
+        $staff = User::find($staffs);
+
+        $recommendations = Recommendation::where('appraisee_id', $staffs)->get();
+
+        return view('appraiser.pages.recommendations', compact('staff', 'average_score',
+        'average_competence', 'average', 'recommendations'));
+    }
+
+    public function storeRecommendation(Request $request, $staff)
+    {
+        $recommendations = $request->reward;
+        if ($request->reward > 0) {
+            foreach ($request->reward as $item) {
+                $recommend = new Recommendation();
+                $recommend->appraisee_id = $staff;
+                $recommend->appraiser_id = Auth::user()->staff_id;
+                $recommend->recommendation = $item;
+                $save = $recommend->save();
+
+                if ($save) {
+                    Alert::success('Success', 'Staff recommended successfully!');
+                    return redirect()->back();
+                }
+
+            }
+
+        }
+    }
+
+
+    public function removeRecommendation($id)
+    {
+        $recommendations = Recommendation::find($id);
+        $delete = $recommendations->delete();
+        if ($delete) {
+            Alert::success('Removed', 'Recommendation removed successfully');
+            return redirect()->back();
+        }
+    }
+
+
+    // Performance Improvement Action Plan
+    public function actionPlan($staff)
+    {
+        $staff = User::find($staff);
+        return view('appraiser.pages.action-plan', compact('staff'));
     }
 }

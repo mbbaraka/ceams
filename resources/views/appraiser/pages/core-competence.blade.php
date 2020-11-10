@@ -16,8 +16,8 @@ Core Competences
             <a href="{{ route('staff-achievements', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Staff Achivement </a>
             <a href="{{ route('achievements-assessment', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Achievement Assessment </a>
             <a href="{{ route('core-competences', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom active"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Core Competence Assessment </a>
-            <a href="{{ route('hr.roles.staff') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Recommendations </a>
-            <a href="{{ route('hr.roles.staff') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Performance Improvement Action Plan </a>
+            <a href="{{ route('recommendations', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Recommendations </a>
+            <a href="{{ route('action-plan', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Performance Improvement Action Plan </a>
             <a href="{{ route('hr.roles.staff') }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Comments </a>
         </div>
       </div>
@@ -28,7 +28,20 @@ Core Competences
             <h3 class="card-title text-custom">Staff Core Competences</h3>
           </div>
           <div class="card-body border-custom">
-
+            <strong>Average Performance (%) : <span>{{ number_format($average_competence, 1) }}</span></strong><br>
+            <strong>Comment :
+                @if ($average_competence < 20)
+                    <span>UNSATISFACTORY</span>
+                @elseif($average_competence < 40)
+                    <span>FAIR</span>
+                @elseif($average_competence < 60)
+                    <span>GOOD</span>
+                @elseif($average_competence < 80)
+                    <span>VERY GOOD</span>
+                @elseif($average_competence < 100)
+                    <span>OUTSTANDING</span>
+                @endif
+            </strong>
           <!-- Competencies and work related behaviors start-->
             <table class="table table-responsive-sm table-hover">
               <thead>
@@ -89,6 +102,7 @@ Core Competences
                                                   Outstanding
                                                 </label>
                                               </div>
+                                              <br>
                                               <small id="helpId" class="text-muted">1:Lowest 5:Highest</small>
                                             </div>
                                             <div class="form-group">

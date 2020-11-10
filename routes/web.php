@@ -73,6 +73,12 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
 
     Route::get('/appraiser/{id}/core-competences', 'AppraiserController@coreCompetence')->name('core-competences');
     Route::post('/appraiser/core-competence/store', 'AppraiserController@editCompetence')->name('store.core-competences');
+
+    Route::get('/appraiser/{staff}/recommendations', 'AppraiserController@recommendations')->name('recommendations');
+    Route::post('/appraiser/{staff}/recommendations/store', 'AppraiserController@storeRecommendation')->name('store.recommendation');
+    Route::get('/appraiser/{staff}/recommendations/remove', 'AppraiserController@removeRecommendation')->name('recommendations.remove');
+
+    Route::get('/appraiser/{staff}/action-plan', 'AppraiserController@actionPlan')->name('action-plan');
 });
 
 

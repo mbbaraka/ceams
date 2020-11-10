@@ -1,53 +1,33 @@
-## Build Blog CMS (Content Management System) with Laravel 7
+## This is a Computerized Employee Appraisal Management System (Ceams).
 
-## Clone this repo
-```
-https://github.com/samironbarai/laravel-7-blog-cms.git
-```
+## By Kyomuhendo Milliam, Aikomo Joseph and Baraka Mark Bright
 
-## Install composer packages
-```
-$ cd laravel-7-blog-cms
-$ composer install
-$ npm install
-$ npm run dev
-```
+## This is a final year project for the award of a Bachelor of Science in Information Technology.
 
-## Create and setup .env file
-```
-make a copy of .env.example and rename to .env
-$ php artisan key:generate
-put database credentials in .env file
-```
+## Supervised by Dr. Andogah Geoffrey, the Faculty Dean Muni University
 
-## Migrate and insert records
-```
-$ php artisan migrate
-$ php artisan tinker
-$ factory(App\User::class, 5)->create();
-$ factory(App\Post::class, 100)->create();
-$ exit
-$ php artisan db:seed --class=CategoriesTableSeeder
-$ php artisan tinker
-$ factory(App\CategoryPost::class, 100)->create();
-```
+## Developed in Laravel 7 as a backend framework and Bootstrap as the Frontend framework.
 
-## Use storate images
-```
-$ php artisan storage:link
-```
+## The database is managed by MySQL.
 
-## Mail setup 
-```
-visit at : https://mailtrap.io/
-put mail credentials in .env file
-```
+## Credits
+1. Dr. Andogah Geoffrey - Supervisor
+2. Human Resource Department Muni University
+3. ICT Department Muni University
 
-## Facing any problem? Contact with me
+Installation Steps
+1. Clone the repo 
+2. Run Composer Install
+3. Copy .env.example to .env
+4. Generate APP_KEY
+5. Open .env and change database details.
+6. Run the migrations
+7. Seed
+8. Run npm install
+9. Run npm run dev
+10. Start the server
+11. Open url in browser 
+12. Login as an HR (hr@muni.ac.ug and helloworld) as email and password respectivelly.
+13. Start exploring the app.
+14. Feel free to give us a star
 
-Click on the image bellow to see YouTube video.
-
-[![Laravel 7 Blog CMS](https://img.youtube.com/vi/Cm4Yggm5K9E/0.jpg)](https://www.youtube.com/watch?v=Cm4Yggm5K9E) 
-
-Please visit my website.
-[samironbarai.com](https://samironbarai.com) 
