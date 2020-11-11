@@ -31,3 +31,6 @@ Installation Steps
 13. Start exploring the app.
 14. Feel free to give us a star
 
+Screenshots of the system
+
+
