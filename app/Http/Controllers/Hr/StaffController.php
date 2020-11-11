@@ -200,7 +200,7 @@ class StaffController extends Controller
 
         if($save)
         {
-            // Mail::to('markbrightbaraka@gmail.com')->send(new HrUserRegistrationMail());
+            Mail::to('markbrightbaraka@gmail.com')->send(new HrUserRegistrationMail());
             Alert::success('Success', 'Role created successfully');
             return redirect()->back();
         }
