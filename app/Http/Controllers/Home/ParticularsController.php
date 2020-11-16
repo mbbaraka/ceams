@@ -80,8 +80,7 @@ class ParticularsController extends Controller
     {
         $this->validate($request,
         [
-            'avator' => 'required|image|mimes:jpeg,jpg,png,webp',
-            'name' => 'required',
+            'avator' => 'image|mimes:jpeg,jpg,png,webp',
             'email' => 'required|email',
             'phone' => 'required',
             'dob' => 'required',
@@ -101,12 +100,16 @@ class ParticularsController extends Controller
           $imagename = $staff->avator;
          }
 
+        //  change password
+        // if (isset($request->password)) {
+        //     $confirm = $request->confirm_password;
+        // }
+
          if(!(Str::contains($request->email, 'muni.ac.ug'))){
-            alert()->warning('Warning','Email must be valid!');
+            alert::warning('Warning','Email must be valid!');
             return redirect()->back()->withInput();
          }else{
             $staff->avator = $imagename;
-            $staff->name = $request->name;
             $staff->email = $request->email;
             $staff->phone = $request->phone;
             $staff->dob = $request->dob;

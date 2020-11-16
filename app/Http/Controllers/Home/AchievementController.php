@@ -55,7 +55,7 @@ class AchievementController extends Controller
 
     public function resetTarget($id)
     {
-        $target = Achievement::where('id', $id)->where('appraisee_id', Auth::user()->staff_id)->first();
+        $target = Achievement::where('job_desc_id', $id)->where('appraisee_id', Auth::user()->staff_id)->first();
         $reset = $target->delete();
 
         if($reset){
