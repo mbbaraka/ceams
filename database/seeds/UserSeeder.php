@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'email' => 'mark@muni.ac.ug',
             'password' => Hash::make('helloworld'),
             'role' => 'HR',
+            'status'=> '1',
         ]);
     }
 }
