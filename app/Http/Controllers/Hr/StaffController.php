@@ -72,11 +72,6 @@ class StaffController extends Controller
           $imagename = "default.png";
          }
 
-         if(!(Str::contains($request->email, 'muni.ac.ug'))){
-            alert::warning('Warning','Email must be valid!');
-            return redirect()->back()->withInput();
-         }else{
-            // $randomString = Str::random(6);
             $password = $request->staff_id;
             $email = $request->email;
             $staff = new User();
@@ -105,7 +100,6 @@ class StaffController extends Controller
                     Session::flash('error', 'Staff not added. An error occured');
                     return redirect()->back();
             }
-        }
     }
 
     public function editStaff(Request $request, $id)
