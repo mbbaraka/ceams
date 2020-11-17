@@ -1,7 +1,7 @@
 @component('mail::message')
 # Account Registration.
 
-Your successfully registered an account with {{ config('app.name') }}! <br>
+You successfully registered an account with {{ config('app.name') }}! <br>
 However, your account is still pending. You will be able to login to the system once the human resource approves you.
 
 Thanks,<br>

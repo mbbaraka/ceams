@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\HrUserRegistrationMail;
+use App\Mail\HrRegistration;
 
 class StaffController extends Controller
 {
@@ -77,11 +77,13 @@ class StaffController extends Controller
             return redirect()->back()->withInput();
          }else{
             // $randomString = Str::random(6);
+            $password = $request->staff_id;
+            $email = $request->email;
             $staff = new User();
             $staff->avator = $imagename;
             $staff->staff_id = $request->staff_id;
             $staff->name = $request->name;
-            $staff->password = Hash::make($request->staff_id);
+            $staff->password = Hash::make($password);
             $staff->email = $request->email;
             $staff->dob = $request->date_of_birth;
             $staff->phone = $request->phone;
@@ -95,10 +97,9 @@ class StaffController extends Controller
             $staff->is_appraiser = '0';
             $save = $staff->save();
 
-
             if ($save) {
                 Alert::success('Inserted', 'Staff successfully created!');
-
+                Mail::to($staff->email)->send(new HrRegistration($email, $password));
                 return redirect()->back();
                 }else{
                     Session::flash('error', 'Staff not added. An error occured');

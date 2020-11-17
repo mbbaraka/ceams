@@ -7,18 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class HrUserRegistrationMail extends Mailable
+class HrRegistration extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $email;
+    public $password;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email, $password)
     {
-        //
+        $this->email = $email;
+        $this->password = $password;
     }
 
     /**
@@ -28,13 +32,8 @@ class HrUserRegistrationMail extends Mailable
      */
     public function build()
     {
-        return $this->from('hr@muni.ac.ug', 'Ceams')
-            ->subject('Account Registration')
-            ->markdown('mail.registration')
-            ->with(
-                [
-                    'name' => 'Hello world'
-                ]
-                );
+        return $this->from('markbrightbaraka@gmail.com')
+                ->subject('Account Registration')
+                ->markdown('mail.hr-registration');
     }
 }
