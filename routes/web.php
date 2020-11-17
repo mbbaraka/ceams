@@ -31,6 +31,8 @@ Auth::routes();
 //     return 'A message has been sent to Mailtrap!';
 
 // });
+require_once ('mail.php');
+
 Route::get('/pending-registration', 'HomeController@pending')->name('pending');
 
 Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], function () {

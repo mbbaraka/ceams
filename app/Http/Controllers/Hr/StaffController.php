@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\User;
 use App\Role;
 use App\Jobs;
+use App\Mail\AccountApproved;
 use App\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -290,6 +291,8 @@ class StaffController extends Controller
 
             $save_notification = $notifications->save();
 
+            // Mail::to('markbrightbaraka@gmail.com')->send(new HrUserRegistrationMail());
+            Mail::to($staff->email)->send(new AccountApproved());
             Alert::success('success', 'Staff approved successfully!');
 
             return redirect()->back();

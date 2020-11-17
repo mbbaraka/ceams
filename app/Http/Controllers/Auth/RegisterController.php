@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\Registration;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -74,7 +76,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-            return User::create([
+            $create = User::create([
                 'staff_id' => $data['staff_id'],
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -82,6 +84,12 @@ class RegisterController extends Controller
                 'status' => '0',
                 'is_appraiser' => '0',
             ]);
+
+            Mail::to($create->email)->send(new Registration);
+
+            return $create;
+
+
 
     }
 
