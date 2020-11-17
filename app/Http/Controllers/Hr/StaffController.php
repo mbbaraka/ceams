@@ -139,7 +139,6 @@ class StaffController extends Controller
             $staff->avator = $imagename;
             $staff->staff_id = $request->staff_id;
             $staff->name = $request->name;
-            $staff->password = Hash::make(Str::random(6));
             $staff->email = $request->email;
             $staff->phone = $request->phone;
             $staff->dob = $request->date_of_birth;
