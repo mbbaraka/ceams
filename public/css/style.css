@@ -185,7 +185,7 @@ body{
 /* for div shadow */
 .shadow {
     box-shadow: 15px 15px 10px #0068f0;
-    border-top-right-radius: 10px !important;
+    /* border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
 }
 
@@ -196,5 +196,5 @@ body{
 
 .card {
     border-top-right-radius: 10px !important;
-    border-top-left-radius: 10px !important;
+    border-top-left-radius: 10px !important; */
 }
