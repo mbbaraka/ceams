@@ -31,14 +31,14 @@ Home
                     </div>
                     <div class="col-md-3">
                       <div class="well dash-box">
-                        <h2><span class="far fa-pencil" aria-hidden="true"></span> 33</h2>
-                        <h4>Posts</h4>
+                        <h2><span class="fa fa-envelope" aria-hidden="true"></span> 33</h2>
+                        <h4>Messages</h4>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="well dash-box">
-                        <h2><span class="fa fa-ambulance" aria-hidden="true"></span> 124</h2>
-                        <h4>Visitors</h4>
+                        <h2><span class="fa fa-tasks" aria-hidden="true"></span> 124</h2>
+                        <h4>Tasks</h4>
                       </div>
                     </div>
                 </div>

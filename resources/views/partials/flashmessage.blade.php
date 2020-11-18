@@ -2,14 +2,14 @@
 	<div class="row">
 	    <div class="col">
 	        @if(Session::has('message'))
-	            <div class="alert alert-success alert-dismissible">
+	            <div class="alert alert-success fade show alert-dismissible">
 	                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	                {{Session('message')}}
-	            </div>
+                </div>
 	        @endif
 
 	        @if(Session::has('error'))
-	            <div class="alert alert-danger alert-dismissible">
+	            <div class="alert alert-danger fade show alert-dismissible">
 	                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	                {{Session('delete-message')}}
 	            </div>
