@@ -233,3 +233,4 @@ class AppraiserController extends Controller
         return view('appraiser.pages.action-plan', compact('staff'));
     }
 }
+ 

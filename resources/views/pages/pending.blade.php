@@ -10,6 +10,8 @@ Registration Successful
            <div class="col-md-10 col-lg-10">
                 <h3>Wait for Approval!</h3>
                 <p>Your registration is still pending. Wait for approval from the Administrator</p>
+                <br>
+                <a href={{url('/')}}>Go back to homepage</a>
            </div>
          </div>
     </div>

@@ -10,6 +10,8 @@ use App\User;
 use App\Role;
 use App\Jobs;
 use App\Mail\AccountApproved;
+use App\Mail\AssignRole;
+use App\Mail\DeassignRole;
 use App\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -47,7 +49,7 @@ class StaffController extends Controller
         // dd($request->all());
         $this->validate($request,
         [
-            'avator' => 'required|image|mimes:jpeg,jpg,png,webp',
+            'avator' => 'image|mimes:jpeg,jpg,png,webp',
             'name' => 'required',
             'staff_id' => 'required',
             'email' => 'required|email',
@@ -195,7 +197,7 @@ class StaffController extends Controller
 
         if($save)
         {
-            Mail::to('markbrightbaraka@gmail.com')->send(new HrUserRegistrationMail());
+            // Mail::to('markbrightbaraka@gmail.com')->send(new HrUserRegistrationMail());
             Alert::success('Success', 'Role created successfully');
             return redirect()->back();
         }
@@ -231,6 +233,8 @@ class StaffController extends Controller
             $notifications->message = "You have beed assigned a role of ". $request->role ." by the Human Resource Officer. You can now perform the role of ". $request->role . ".";
 
             $save_notification = $notifications->save();
+            Mail::to($assign->email)->send(new AssignRole($assign->name, $assign->role));
+
             Alert::success('Done', 'Successfully assigned role to '.$assign->name);
             return redirect()->back();
         }
@@ -258,6 +262,9 @@ class StaffController extends Controller
             $notifications->message = "You have beed de-assigned from a role of ". $role->role ." by the Human Resource Officer.";
 
             $save_notification = $notifications->save();
+
+            Mail::to($role->email)->send(new DeassignRole($role->name));
+
             Alert::success('success', 'Staff de-assigned successfully');
             return redirect()->back();
         }
