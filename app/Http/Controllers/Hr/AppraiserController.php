@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Hr;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AssignAppraise;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\User;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -31,6 +33,7 @@ class AppraiserController extends Controller
         $staff->is_appraiser = '1';
         $save = $staff->save();
         if ($save) {
+            Mail::to($staff->email)->send(new AssignAppraise($staff->name));
             Alert::success('Success', 'Successfully made '. $staff->name .' an appraiser!');
             return redirect()->back();
         }
