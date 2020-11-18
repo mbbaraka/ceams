@@ -17,7 +17,7 @@ Home
                 <div class="row">
                     <div class="col-md-3">
                     <div class="well dash-box">
-                        <h2><span class="fa fa-bell" aria-hidden="true"></span> 12</h2>
+                        <h2><span class="fa fa-bell" aria-hidden="true"></span> {{ $notifications->count() }}</h2>
                         <h4>Notifications</h4>
                     </div>
                     </div>

@@ -82,9 +82,9 @@ class HomeController extends Controller
     //   return $pdf->download('pdf_file.pdf');
         view()->share('welcome');
 
-        $pdf =PDF::loadView('appraisals.index');
+        $pdf =PDF::loadView('appraisals.print');
 
-        return $pdf->download('hello.pdf');
+        return $pdf->download('appraisal-form.pdf');
 
     }
 }

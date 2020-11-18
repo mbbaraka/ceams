@@ -10,7 +10,7 @@ Appraisal Form
       <div class="col-md-12">
           <!-- Latest Users -->
         <div class="card shadow">
-          <div class="card-header border-custom pt-1 pb-1">
+          <div class="card-header pt-1 pb-1">
             <h3 class="card-title text-custom">
                 Staff Appraisal Form
                 <a target="_blank" href="{{ route('print') }}" class="btn btn-sm btn-primary float-right"><span class="fa fa-print"></span> Print Form</a>
@@ -256,5 +256,5 @@ Appraisal Form
         </div>
       </div>
     </div>
-  </div>
+</div>
 @endsection

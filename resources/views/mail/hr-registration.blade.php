@@ -5,8 +5,10 @@ You have been registered as a staff of Muni University by the Human resource off
 <br>
 Email: {{ $email }}
 <br>
-Password: {{ $password }}
-
+Password: {{ $password }} <br>
+@component('mail::button', ['url' => 'http://3.16.131.16/'])
+Visit Site
+@endcomponent
 Thanks,<br>
 {{ config('app.name') }}
 <br><br>

@@ -68,6 +68,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::get('/apraisee-list', 'AppraiserController@listAppraisee')->name('appraisee-list');
     Route::get('/appraiser/{id}/staff', 'AppraiserController@staff')->name('appraiser-staff');
     Route::get('/appraiser/{id}/achievements', 'AppraiserController@achievement')->name('staff-achievements');
+    Route::get('/appraiser/{id}/particulars', 'AppraiserController@particulars')->name('staff-particulars');
     Route::get('/appraiser/{id}/achievement-assessment/', 'AppraiserController@achievementAssessment')->name('achievements-assessment');
     Route::post('/appraiser/{id}/update', 'AppraiserController@updateAchievement')->name('achievements-assessment.update');
     Route::get('/appraiser/{id}/reject/{staff}', 'AppraiserController@rejectAchievement')->name('achievements-assessment.reject');

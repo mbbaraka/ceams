@@ -232,5 +232,10 @@ class AppraiserController extends Controller
         $staff = User::find($staff);
         return view('appraiser.pages.action-plan', compact('staff'));
     }
+
+    public function particulars($staff)
+    {
+        $staff = User::find($staff);
+        return view('appraiser.pages.particulars', compact('staff'));
+    }
 }
- 
