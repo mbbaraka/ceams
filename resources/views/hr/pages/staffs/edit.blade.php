@@ -118,15 +118,29 @@
                                                           </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                          <label for="salary-scale" class="col-sm-2 col-form-label">Salary Scale</label>
-                                                          <div class="col-sm-10">
-                                                            <input type="text" value="{{ $staff->salary_scale}}" class="@error('salary_scale') is-invalid @enderror form-control"   id="salary-scale" name="salary_scale" placeholder="Salary Scale">
-                                                            @error('salary_scale')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                          </div>
+                                                            <label for="salary_scale" class="col-sm-2 col-form-label">Salary Scale</label>
+                                                            <div class="col-sm-10">
+                                                              <select name="salary_scale" class="@error('salary_scale') is-invalid @enderror form-control" id="salary_scale">
+                                                                  <option @if ($staff->salary_scale == "M1") selected @endif value="M1">M 1</option>
+                                                                  <option @if ($staff->salary_scale == "M2") selected @endif value="M2">M 2</option>
+                                                                  <option @if ($staff->salary_scale == "M3") selected @endif value="M3">M 3</option>
+                                                                  <option @if ($staff->salary_scale == "M4") selected @endif value="M4">M 4</option>
+                                                                  <option @if ($staff->salary_scale == "M5") selected @endif value="M5">M 5</option>
+                                                                  <option @if ($staff->salary_scale == "M6.1") selected @endif value="M6.1">M 6.1</option>
+                                                                  <option @if ($staff->salary_scale == "M6.2") selected @endif value="M6.2">M 6.2</option>
+                                                                  <option @if ($staff->salary_scale == "M7") selected @endif value="M7">M 7</option>
+                                                                  <option @if ($staff->salary_scale == "M10") selected @endif value="M10">M 10</option>
+                                                                  <option @if ($staff->salary_scale == "M12") selected @endif value="M12">M 12</option>
+                                                                  <option @if ($staff->salary_scale == "M13") selected @endif value="M13">M 13</option>
+                                                                  <option @if ($staff->salary_scale == "M15") selected @endif value="M15">M 15</option>
+                                                                  <option @if ($staff->salary_scale == "M20") selected @endif value="M20">M 20</option>
+                                                              </select>
+                                                              @error('salary_scale')
+                                                                  <span class="invalid-feedback" role="alert">
+                                                                      <strong>{{ $message }}</strong>
+                                                                  </span>
+                                                              @enderror
+                                                            </div>
                                                         </div>
                                                         <div class="form-group row">
                                                           <label for="appointment" class="col-sm-2 col-form-label">Appointment Date</label>

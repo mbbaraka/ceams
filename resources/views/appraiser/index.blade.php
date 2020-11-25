@@ -46,19 +46,19 @@ Appraiser
               <!-- Latest Users -->
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="card shadow">
+                    <div class="card shadow" style="min-height: 100%;">
                         <div class="card-header border-custom pt-1 pb-1">
                           <h3 class="card-title text-custom">Notifications</h3>
                         </div>
                         <div class="card-body border-custom">
                             <table class="table table-striped table-hover">
+                                @if ($notifications->count() > 0)
                                 <tr>
                                   <th>#</th>
                                   <th>Message</th>
                                   <th>Status</th>
                                   <th>Action</th>
                                 </tr>
-                                @if ($notifications->count() > 0)
                                 @foreach ($notifications as $key => $notification)
                                 <tr>
                                   <td>{{ $key+1 }}</td>
@@ -104,14 +104,14 @@ Appraiser
                                 </tr>
                                 @endforeach
                                 @else
-                                    <tr><td colspan="4">No New Notifications</td></tr>
+                                    <span>No new notifications</span>
                                 @endif
                             </table>
                         </div>
                       </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card shadow">
+                    <div class="card shadow" style="min-height: 100%;">
                         <div class="card-header border-custom pt-1 pb-1">
                           <h3 class="card-title text-custom">Latest Users</h3>
                         </div>

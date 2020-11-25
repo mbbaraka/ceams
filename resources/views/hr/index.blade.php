@@ -46,12 +46,13 @@ Home
 
         <!-- Latest Users -->
         <div class="col-lg-6">
-            <div class="card shadow">
+            <div class="card shadow" style="min-height: 100%;">
                 <div class="card-header border-custom pt-1 pb-1">
                 <h3 class="card-title text-custom">Notifications</h3>
                 </div>
                 <div class="card-body border-custom">
                 <table class="table table-striped table-hover">
+                    @if($notifications->count() > 0)
                     <tr>
                       <th>#</th>
                       <th>Message</th>
@@ -102,6 +103,9 @@ Home
                       </td>
                     </tr>
                     @endforeach
+                    @else
+                    <span>No notifications yet</span>
+                    @endif
                   </table>
                 </div>
             </div>
@@ -113,11 +117,11 @@ Home
                 </div>
                 <div class="card-body border-custom">
                 <table class="table table-striped table-hover">
+                    @if ($pending->count() > 0)
                     <tr>
                         <th>#</th>
                         <th class="text-right">Message</th>
                     </tr>
-                    @if ($pending->count() > 0)
                         @foreach ($pending as $key => $item)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
@@ -127,10 +131,10 @@ Home
                         <tfoot>
                             <tr><td colspan="2"><a  class="float-right" href="{{ route('hr.staffs.pending') }}">View All</a></td></tr>
                         </tfoot>
+                    </table>
                     @else
                         <tr><td>No new Pending Registration</td></tr>
                     @endif
-                    </table>
                 </div>
             </div>
         </div>

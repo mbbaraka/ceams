@@ -7,6 +7,7 @@ use App\Study;
 use App\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 
@@ -84,7 +85,7 @@ class HomeController extends Controller
 
         $pdf =PDF::loadView('appraisals.print');
 
-        return $pdf->download('appraisal-form.pdf');
+        return $pdf->download('appraisal-form-'. Str::uuid() .'.pdf');
 
     }
 }

@@ -64,7 +64,7 @@
                               </tr>
                               <tr>
                                 <td width="30%">Terms of Service :</td>
-                                <td><span class="badge badge-info">{{ Auth::user()->terms_of_service }}</span></td>
+                                <td><strong>{{ Auth::user()->terms_of_service }}</strong></td>
                               </tr>
                               <tr>
                                 <td width="30%">Email Address :</td>

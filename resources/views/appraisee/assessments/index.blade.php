@@ -34,7 +34,7 @@
                       <td>{{ $key +1 }}</td>
                       <td>{!! $descriptions->description !!}</td>
                       <td>How will results be achieved</td>
-                      <td>
+                      <td width="40%;">
                         @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
                             {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }}
                             @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "pending")
@@ -72,7 +72,7 @@
                                                   </p>
                                                 </div>
                                                 <div class="form-group">
-                                                  <label for="description">Job Description</label>
+                                                  <label for="description">Performance Target</label>
                                                   <p class="text-muted">
                                                       {!! $descriptions->description !!}
                                                   </p>
@@ -80,16 +80,17 @@
                                                 <div class="form-group">
                                                     <label for="description">Performance Target</label>
                                                     <p class="text-muted">
-                                                        @if (count($achievements) >0)
-                                                        @foreach ($achievements as $achievement)
-                                                            @if ($achievement->job_desc_id == $descriptions->id)
-                                                            {{ $achievement->min_performance_level }}
-                                                            @else
-                                                            <i>Not yet added</i>
+                                                        @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
+                                                            {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }}
+                                                            @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "pending")
+                                                            <span class="float-right badge badge-primary">Pending</span>
+                                                            @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "rejected")
+                                                                <span class="float-right badge badge-danger">Rejected</span>
+                                                            @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "approved")
+                                                                <span class="float-right badge badge-success">Approved</span>
                                                             @endif
-                                                        @endforeach
                                                         @else
-                                                            <i>Not yet added</i>
+                                                            <span>Not yet added.</span>
                                                         @endif
                                                     </p>
                                                   </div>

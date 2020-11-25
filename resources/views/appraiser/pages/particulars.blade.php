@@ -12,7 +12,7 @@ Performance Improvement Action Plan
             <div class="list-group-item border-custom pt-1 pb-1">
               <h4 class="text-custom" style="text-transform: capitalize">{{ $staff->name }}</h4>
             </div>
-            <a href="{{ route('staff-particulars', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff Particulars </a>
+            <a href="{{ route('staff-particulars', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom active"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Staff Particulars </a>
             <a href="{{ route('staff-achievements', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Staff Achievement </a>
             <a href="{{ route('achievements-assessment', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Achievement Assessment </a>
             <a href="{{ route('core-competences', $staff->staff_id) }}" class="list-group-item list-group-item-action border-custom"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Core Competence Assessment </a>
@@ -34,55 +34,55 @@ Performance Improvement Action Plan
                 <tbody>
                     <tr>
                         <td width="40%">Name of Appraisee :</td>
-                        <td>{{ Auth::user()->name }}</td>
+                        <td>{{ $staff->name }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Date of Birth :</td>
-                      <td>{{ date('d M, Y', strtotime(Auth::user()->dob)) }}</td>
+                      <td>{{ date('d M, Y', strtotime($staff->dob)) }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Department :</td>
-                      <td>{{ Auth::user()->department }}</td>
+                      <td>{{ $staff->department }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Faculty :</td>
-                      <td>{{ Auth::user()->faculty }}</td>
+                      <td>{{ $staff->faculty }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Job Title :</td>
-                      <td>{{ Auth::user()->job_title }}</td>
+                      <td>{{ $staff->job_title }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Salary Scale :</td>
-                      <td>{{ Auth::user()->salary_scale }}</td>
+                      <td>{{ $staff->salary_scale }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Date of Appointment :</td>
-                      <td>{{ Auth::user()->appointment_date }}</td>
+                      <td>{{ $staff->appointment_date }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Terms of Service :</td>
-                      <td><span class="badge badge-info">{{ Auth::user()->terms_of_service }}</span></td>
+                      <td><span class="badge badge-info">{{ $staff->terms_of_service }}</span></td>
                     </tr>
                     <tr>
                       <td width="40%">Email Address :</td>
-                      <td>{{ Auth::user()->email }}</td>
+                      <td>{{ $staff->email }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Phone :</td>
-                      <td>{{ Auth::user()->phone }}</td>
+                      <td>{{ $staff->phone }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Name of Appraiser/Supervisor :</td>
-                      <td>{{ Auth::user()->appraiser->name }}</td>
+                      <td>{{ $staff->appraiser->name }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Job Title/Rank :</td>
-                      <td>{{ Auth::user()->appraiser->job_title }}</td>
+                      <td>{{ $staff->appraiser->job_title }}</td>
                     </tr>
                     <tr>
                       <td width="40%">Salary Scale :</td>
-                      <td>{{ Auth::user()->appraiser->salary_scale }}</td>
+                      <td>{{ $staff->appraiser->salary_scale }}</td>
                     </tr>
                 </tbody>
               </table>

@@ -10,20 +10,13 @@
 
                         <a href="">{{Request::segment($i)}}</a>
                         @if($i < count(Request::segments()) & $i > 0)
-                            {!!'<span>&nbsp; >> &nbsp;</span>'!!}
+                            {!!'<span>&nbsp; / &nbsp;</span>'!!}
                         @endif
                     </li>
                     @endfor
                 </ol> --}}
                 <ol class="breadcrumb">
                     <li><a href="/appraiser"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-                    <?php $segments = ''; ?>
-                    @foreach(Request::segments() as $segment)
-                        <?php $segments .= '/'.$segment; ?>
-                        <li>
-                            &nbsp; >> <a href="{{ $segments }}">{{$segment}}</a>
-                        </li>
-                    @endforeach
                 </ol>
               </div>
               <div class="col-md-2">
