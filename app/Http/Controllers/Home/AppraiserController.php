@@ -30,7 +30,7 @@ class AppraiserController extends Controller
 
     public function staff($id)
     {
-        $staff = User::find($id)->first();
+        $staff = User::find($id);
         return view('appraiser.pages.particulars', compact('staff'));
     }
 

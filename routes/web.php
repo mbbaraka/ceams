@@ -73,7 +73,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::post('/appraiser/{id}/update', 'AppraiserController@updateAchievement')->name('achievements-assessment.update');
     Route::get('/appraiser/{id}/reject/{staff}', 'AppraiserController@rejectAchievement')->name('achievements-assessment.reject');
     Route::get('/appraiser/{id}/approve/{staff}', 'AppraiserController@approveAchievement')->name('achievements-assessment.approve');
-
+ 
     Route::get('/appraiser/{id}/core-competences', 'AppraiserController@coreCompetence')->name('core-competences');
     Route::post('/appraiser/core-competence/store', 'AppraiserController@editCompetence')->name('store.core-competences');
 
