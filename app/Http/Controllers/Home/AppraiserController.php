@@ -36,7 +36,7 @@ class AppraiserController extends Controller
 
     public function achievement($id)
     {
-        $staff = User::find($id)->first();
+        $staff = User::find($id);
         $studies = Study::where('staff_id', $id)->take(5)->latest()->get();
         $courses = Courses::where('staff_id', $id)->take(5)->latest()->get();
         $publications = Publication::where('staff_id', $id)->take(5)->latest()->get();
@@ -49,7 +49,7 @@ class AppraiserController extends Controller
 
     public function achievementAssessment($id)
     {
-        $staff = User::find($id)->first();
+        $staff = User::find($id);
         $title = Jobs::where('title', $staff->job_title)->first();
 
         $score_result = 0;
