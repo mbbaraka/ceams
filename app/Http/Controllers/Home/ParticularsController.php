@@ -92,7 +92,7 @@ class ParticularsController extends Controller
          if (isset($file)) {
            $curentdate = Carbon::now()->toDateString();
                 $imagename =  $curentdate . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
-                if(fileExists('app/public/images/avator/'.$staff->avator)){
+                if(file_exists('app/public/images/avator/'.$staff->avator)){
                     unlink('app/public/images/avator/'.$staff->avator);
                 }
                 $file->move(public_path('app/public/images/avator'), $imagename);
