@@ -133,7 +133,7 @@ Home
                         </tfoot>
                     </table>
                     @else
-                        <tr><td>No new pending registration !</td></tr>
+                        <tr><td>No new Pending Registration</td></tr>
                     @endif
                 </table>
                 </div>
