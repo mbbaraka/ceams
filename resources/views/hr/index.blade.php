@@ -135,6 +135,7 @@ Home
                     @else
                         <tr><td>No new pending registration !</td></tr>
                     @endif
+                </table>
                 </div>
             </div>
         </div>
