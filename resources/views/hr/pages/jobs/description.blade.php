@@ -62,7 +62,7 @@ Home
                     <td>
                         <div class="btn-group" role="group">
                             {{-- <a href="#"><button title="Manage Descriptions" class="btn btn-light"><span class="fa fa-tasks text-dark"></span></button></a> --}}
-                            <a href="{{ route('hr.jobs.description.delete', $description->id) }}" title="Delete Job title" class="btn btn-light"><span class="fa fa-times-circle text-primary"></span></a>
+                            <a href="{{ route('hr.jobs.description.delete', $description->id) }}" title="Delete Job title" onclick="confirm('Are you sure?')" class="btn btn-light"><span class="fa fa-times-circle text-primary"></span></a>
                         </div>
                     </td>
                     </tr>

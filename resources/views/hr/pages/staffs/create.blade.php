@@ -110,8 +110,10 @@ Home
                       <div class="col-sm-10">
                         {{-- <input type="text" value="{{old('faculty')}}" class="@error('faculty') is-invalid @enderror form-control"  name="faculty" id="faculty" placeholder="Faculty"> --}}
                         <select name="faculty" class="@error('faculty') is-invalid @enderror form-control" id="faculty">
-                            <option value="Techno Science">Techno Science</option>
+                            <option value="TechnoScience">TechnoScience</option>
                             <option value="Health Science">Health Sciences</option>
+                            <option value="Education">Education</option>
+                            <option value="Management Science">Management Science</option>
                         </select>
                         @error('faculty')
                             <span class="invalid-feedback" role="alert">

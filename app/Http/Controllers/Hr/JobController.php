@@ -44,7 +44,7 @@ class JobController extends Controller
     public function jobDescription($id)
     {
         $job = Jobs::findOrFail($id);
-        $descriptions = JobDescription::where('job_id', $id)->paginate(5);
+        $descriptions = JobDescription::where('job_id', $id)->paginate(3);
         return view('hr.pages.jobs.description', compact('descriptions', 'job'));
     }
 
