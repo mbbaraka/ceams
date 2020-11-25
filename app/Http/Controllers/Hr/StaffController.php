@@ -52,7 +52,7 @@ class StaffController extends Controller
             'avator' => 'image|mimes:jpeg,jpg,png,webp',
             'name' => 'required',
             'staff_id' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|unique:users|string|email|max:255|regex:/(.*)@muni\.ac.ug/i',
             'phone' => 'required',
             'department' => 'required',
             'date_of_birth' => 'required',
@@ -74,7 +74,7 @@ class StaffController extends Controller
           $imagename = "default.png";
          }
 
-            $password = $request->staff_id;
+            $password = Str::random(8);
             $email = $request->email;
             $staff = new User();
             $staff->avator = $imagename;
@@ -111,7 +111,7 @@ class StaffController extends Controller
             'avator' => 'image|mimes:jpeg,jpg,png,webp',
             'name' => 'required',
             'staff_id' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|string|email|max:255|regex:/(.*)@muni\.ac.ug/i',
             'phone' => 'required',
             'department' => 'required',
             'date_of_birth' => 'required',
@@ -134,10 +134,6 @@ class StaffController extends Controller
           $imagename = $staff->avator;
          }
 
-         if(!(Str::contains($request->email, 'muni.ac.ug'))){
-            alert()->warning('Warning','Email must be valid!');
-            return redirect()->back()->withInput();
-         }else{
             $staff->avator = $imagename;
             $staff->staff_id = $request->staff_id;
             $staff->name = $request->name;
@@ -163,7 +159,6 @@ class StaffController extends Controller
                     Session::flash('error', 'Staff not updated. An error occured');
                     return redirect()->back();
             }
-        }
     }
 
     public function deleteStaff($id)

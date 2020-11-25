@@ -81,7 +81,7 @@ class ParticularsController extends Controller
         $this->validate($request,
         [
             'avator' => 'image|mimes:jpeg,jpg,png,webp',
-            'email' => 'required|email',
+            'email' => 'required|string|email|max:255|regex:/(.*)@muni\.ac.ug/i',
             'phone' => 'required',
             'dob' => 'required',
         ]);
@@ -100,15 +100,26 @@ class ParticularsController extends Controller
           $imagename = $staff->avator;
          }
 
-        //  change password
-        // if (isset($request->password)) {
-        //     $confirm = $request->confirm_password;
-        // }
+        if (isset($request->password)) {
+           $password = $request->password;
+           if(strlen($password) < 8){
+            toast('Password to easy. Should be more than 8 characters', 'warning');
+            return redirect()->back();
+           }elseif ($request->confirm_password == "") {
+               toast('You must confirm password', 'warning');
+               return redirect()->back();
+           }else {
+               $confirm_password = $request->confirm_password;
 
-         if(!(Str::contains($request->email, 'muni.ac.ug'))){
-            alert::warning('Warning','Email must be valid!');
-            return redirect()->back()->withInput();
-         }else{
+               if ($password === $confirm_password) {
+                   $staff->password = bcrypt($password);
+               }else{
+                    toast('Passwords do not match', 'warning');
+                    return redirect()->back();
+               }
+           }
+        }
+
             $staff->avator = $imagename;
             $staff->email = $request->email;
             $staff->phone = $request->phone;
@@ -125,7 +136,6 @@ class ParticularsController extends Controller
 
                     return redirect()->back();
             }
-        }
     }
 
     /**

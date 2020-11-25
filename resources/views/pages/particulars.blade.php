@@ -74,7 +74,7 @@ Particulars
                 <strong><i class="fas fa-hand-holding-usd mr-1"></i> Salary Scale : </strong>
 
                 <span class="text-muted" style="text-transform: uppercase; font-size: 14px;">
-                  {{ $particulars->salary_Scale }}
+                  {{ $particulars->salary_scale }}
                 </span>
                 <hr>
                 <strong><i class="fa fa-server mr-1"></i> Terms of Service : </strong>
