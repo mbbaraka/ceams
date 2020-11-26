@@ -14,7 +14,7 @@
 }
 .error-heading{
     margin: 50px auto;
-    width: 400px;
+    width: 80%;
     border: 5px solid #fff;
     font-size: 126px;
     line-height: 126px;
