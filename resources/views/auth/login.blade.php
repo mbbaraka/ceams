@@ -78,7 +78,9 @@ Login
                     <div class="text-center">
                         <img src="{{config('app.url')}}/logo.png" class="img-fluid">
                     </div>
-                    <div class="pt-5"></div>
+                    <div class="pt-5 pb-4 text-center">
+                      <strong>Computerised Employee Appraisal Management System</strong>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="input-group mb-3">
