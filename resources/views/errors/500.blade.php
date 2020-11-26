@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>403 error</title>
+    <title>Server error</title>
     <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
     <style>
         body{
@@ -36,8 +36,8 @@
 <body>
 	<div class="error-main">
 		<h1>Oops!</h1>
-		<div class="error-heading">403</div>
-        <p>You do not have permission to access the page that you requested.</p>
+		<div class="error-heading">400 | Server Error</div>
+        <p>Some data might be missing. Please ensure that you complete some forms.</p>
         <br>
         <br>
         <strong>I understand, <a href="#" onclick="goBack()">Take me back</a></strong>

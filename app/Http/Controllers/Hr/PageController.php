@@ -19,7 +19,8 @@ class PageController extends Controller
 
     public function appraisers ()
     {
-        return view('hr.pages.appraisers.index');
+        $appraisers = User::where('is_appraiser', '1')->where('status', '1')->paginate(5);
+        return view('hr.pages.appraisers.list', compact('appraisers'));
     }
 
     public function appraisals ()

@@ -104,7 +104,7 @@ Home
                     </tr>
                     @endforeach
                     @else
-                    <span>No notifications yet</span>
+                    <tr><td>No new Notifications</td></tr>
                     @endif
                   </table>
                 </div>

@@ -17,41 +17,6 @@ Home
         </div>
       </div>
       <div class="col-md-8">
-        <!-- Website Overview -->
-        {{-- <div class="card mb-3">
-          <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Overview</h3>
-          </div>
-          <div class="card-body border-custom">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="well dash-box">
-                  <h2><span class="fa fa-bell" aria-hidden="true"></span> 12</h2>
-                  <h4>Notifications</h4>
-                </div>
-              </div>
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="fa fa-list-alt" aria-hidden="true"></span> 12</h2>
-                    <h4>Pending</h4>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="far fa-pencil" aria-hidden="true"></span> 33</h2>
-                    <h4>Posts</h4>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="fa fa-ambulance" aria-hidden="true"></span> 124</h2>
-                    <h4>Visitors</h4>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div> --}}
-
           <!-- Latest Users -->
         <div class="card">
           <div class="card-header border-custom pt-1 pb-1">
@@ -75,7 +40,12 @@ Home
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $staff->name }}</td>
                         <td>{{ $staff->department }}</td>
-                        <td></td>
+                        <td>
+                            {{-- @php
+                                echo App\User::where('appraiser_status', $staff->staff_id)->count();
+                            @endphp --}}
+                            {{ $staff->appraisee->count() }}
+                        </td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a href="{{ route('hr.appraiser.appraisees', $staff->staff_id) }}"><button title="Manage Appraisees" class="btn btn-light"><span class="fa fa-tasks"></span></button></a>
