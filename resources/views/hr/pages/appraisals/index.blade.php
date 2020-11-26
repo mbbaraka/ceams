@@ -29,31 +29,31 @@ Home
                         <th>#</th>
                         <th>Name</th>
                         <th>Department</th>
-                        <th>No. of Appraisees</th>
+                        <th>Appraiser</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @if(count($appraisers) > 0)
-                    @foreach($appraisers as $key => $staff)
+                    @if(count($staffs) > 0)
+                    @foreach($staffs as $key => $staff)
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $staff->name }}</td>
                         <td>{{ $staff->department }}</td>
-                        <td>{{ $staff->appraisee }}</td>
+                        <td>{{ $staff->staffAppraiser->name }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{{ route('hr.appraiser.appraisees', $staff->staff_id) }}"><button title="Manage Appraisees" class="btn btn-light"><span class="fa fa-tasks"></span></button></a>
-                                <a href="{{ route('hr.appraiser.delete', $staff->staff_id) }}" title="De-assign" class="btn btn-light""><span class="fa fa-times-circle"></span></a>
+                                <a href="{{ route('hr.appraiser.appraisees', $staff->staff_id) }}"><button title="View Appraisal" class="btn btn-light"><span class="fa fa-eye"></span></button></a>
                             </div>
                         </td>
                     </tr>
                     @endforeach
                     @else
                     <tr>No data available</tr>
-                    @endif --}}
+                    @endif
                 </tbody>
             </table>
+            {{ $staffs->links() }}
           </div>
         </div>
       </div>

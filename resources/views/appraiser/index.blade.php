@@ -35,7 +35,7 @@ Appraiser
                     </div>
                     <div class="col-md-3">
                       <div class="well dash-box">
-                        <h2><span class="fa fa-users" aria-hidden="true"></span> {{ $notifications_count }}</h2>
+                        <h2><span class="fa fa-users" aria-hidden="true"></span> {{ $appraisees->count() }}</h2>
                         <h4>Appraisees</h4>
                       </div>
                     </div>
@@ -107,26 +107,35 @@ Appraiser
                                     <span>No new notifications</span>
                                 @endif
                             </table>
+                            {{ $notifications->links() }}
                         </div>
                       </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="card shadow" style="min-height: 100%;">
                         <div class="card-header border-custom pt-1 pb-1">
-                          <h3 class="card-title text-custom">Latest Users</h3>
+                          <h3 class="card-title text-custom">Appraisee List</h3>
                         </div>
                         <div class="card-body border-custom">
                           <table class="table table-striped table-hover">
                               <tr>
+                                <th>#</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Joined</th>
                               </tr>
-                              <tr>
-                                <td>Mike Johnson</td>
-                                <td>mjohnson@gmail.com</td>
-                                <td>Dec 15, 2016</td>
-                              </tr>
+                              @if ($appraisees->count())
+                                @foreach ($appraisees as $key => $staff)
+                                <tr>
+                                  <td>{{ $key + 1 }}</td>
+                                  <td>{{ $staff->name }}</td>
+                                  <td>
+                                    <a href="{{ route('appraiser-staff', $staff->staff_id) }}" title="Take Action" class="btn btn-light"><span class="fa fa-tasks text-dark"></span></a>
+                                  </td>
+                                </tr>
+                                @endforeach
+                              @else
+                                <tr><td>No staff available to appraisee</td></tr>
+                              @endif
                             </table>
                         </div>
                       </div>

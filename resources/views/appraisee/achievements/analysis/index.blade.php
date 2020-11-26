@@ -25,7 +25,7 @@
                     <tr>
                       <td>{{ $key + 1 }}</td>
                       <td>{{ $analysis->constraint }}</td>
-                      <td>{{ $analysis->constraint }}</td>
+                      <td>{{ $analysis->strategy }}</td>
                       <td class="text-right">
                         <div class="btn-group" role="group">
                           <a href="#modal{{$analysis->id}}" class="btn btn-light" data-toggle="modal" data-target="#modal{{$analysis->id}}"><span class="fa fa-edit text-primary"></span></a>

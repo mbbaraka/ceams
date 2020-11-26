@@ -25,7 +25,8 @@ class PageController extends Controller
 
     public function appraisals ()
     {
-        return view('hr.pages.appraisals.index');
+        $staffs = User::where('status', '1')->paginate(5);
+        return view('hr.pages.appraisals.index', compact('staffs'));
     }
 
     public function roles ()

@@ -125,4 +125,9 @@ class User extends Authenticatable
         return $this->hasMany(User::class, 'appraiser_status', 'staff_id');
     }
 
+    public function staffAppraiser()
+    {
+        return $this->belongsTo(User::class, 'appraiser_status');
+    }
+
 }

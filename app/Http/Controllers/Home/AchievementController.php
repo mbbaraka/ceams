@@ -15,18 +15,25 @@ class AchievementController extends Controller
 {
     public function index()
     {
-        $user = User::where('staff_id', Auth::user()->staff_id)->first();
-        $title = Jobs::where('title', $user->job_title)->first();
-        $description = JobDescription::where('job_id', $title->id)->get();
-        $achievements = Achievement::where('appraisee_id', $user->staff_id)->get();
-        return view ('appraisee.assessments.index', compact('description', 'achievements'));
+        if (Auth::user()->job_title == NULL) {
+            toast('You cannot view this page now, Please ensure that all the staff particulars are filled', 'warning');
+            return redirect()->back();
+        }else{
+            $user = User::where('staff_id', Auth::user()->staff_id)->first();
+            $title = Jobs::where('title', $user->job_title)->first();
+            $description = JobDescription::where('job_id', $title->id)->paginate(3);
+            $achievements = Achievement::where('appraisee_id', $user->staff_id)->get();
+            return view ('appraisee.assessments.index', compact('description', 'achievements'));
+        }
+
     }
 
     public function storeTarget(Request $request, $id)
     {
         $this->validate($request,
             [
-                'target' => 'required|min:50',
+                'target' => 'required|min:30',
+                'indicator' => 'required|min:30',
             ]
          );
 
