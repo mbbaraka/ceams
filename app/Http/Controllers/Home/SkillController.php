@@ -40,7 +40,7 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $this->validate($request, [ 
             'skill' => 'required',
         ]);
 

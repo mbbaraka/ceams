@@ -33,7 +33,20 @@
                     <tr>
                       <td>{{ $key +1 }}</td>
                       <td>{!! $descriptions->description !!}</td>
-                      <td>How will results be achieved</td>
+                      <td>
+                        @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
+                            {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->performance_indicators }}
+                            @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "pending")
+                            <span class="float-right badge badge-primary">Pending</span>
+                            @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "rejected")
+                                <span class="float-right badge badge-danger">Rejected</span>
+                            @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "approved")
+                                <span class="float-right badge badge-success">Approved</span>
+                            @endif
+                        @else
+                            <span>Not yet added. <a data-toggle="modal" href="#editModal{{ $descriptions->id }}">Click to add</a></span>
+                        @endif
+                      </td>
                       <td width="40%;">
                         @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
                             {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }}
@@ -73,8 +86,19 @@
                                                 </div>
                                                 <div class="form-group">
                                                   <label for="description">Performance Target</label>
-                                                  <p class="text-muted">
-                                                      {!! $descriptions->description !!}
+                                                    <p class="text-muted">
+                                                        @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
+                                                        {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->performance_indicators }}
+                                                        @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "pending")
+                                                        <span class="float-right badge badge-primary">Pending</span>
+                                                        @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "rejected")
+                                                            <span class="float-right badge badge-danger">Rejected</span>
+                                                        @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "approved")
+                                                            <span class="float-right badge badge-success">Approved</span>
+                                                        @endif
+                                                    @else
+                                                        <span>Not yet added.</span>
+                                                    @endif
                                                   </p>
                                                 </div>
                                                 <div class="form-group">
@@ -112,6 +136,12 @@
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="myModalLabel">Editing Achievement Assessment</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                  <label for="indicator">Performance Indicators</label>
+                                                  <textarea name="indicator" id="indicator" cols="30" rows="5" class="form-control"></textarea>
+                                                </div>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">

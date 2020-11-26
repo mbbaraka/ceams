@@ -33,6 +33,7 @@ class AchievementController extends Controller
          $target = Achievement::where('job_desc_id', $id)->where('appraisee_id', Auth::user()->staff_id)->first();
          if(!empty($target)){
             $target->min_performance_level = $request->target;
+            $target->performance_indicators = $request->indicator;
             $save = $target->save();
 
             if($save){
@@ -42,6 +43,7 @@ class AchievementController extends Controller
          }else{
              $target = new Achievement();
              $target->min_performance_level = $request->target;
+             $target->performance_indicators = $request->indicator;
              $target->appraisee_id = Auth::user()->staff_id;
              $target->job_desc_id = $id;
              $save = $target->save();

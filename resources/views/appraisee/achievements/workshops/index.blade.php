@@ -56,7 +56,7 @@ Workshops/Meetings
                           </div>
                         </div>
                         </tr>
-                        
+
                       @endforeach
                     </table>
               </div>
@@ -72,7 +72,7 @@ Workshops/Meetings
           <form action="{{ route('meetings.store') }}" method="post">
             @csrf
           <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Add New Study Undertaken</h4>
+            <h4 class="modal-title" id="myModalLabel">Add New Workshop/Meeting Held</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           @include('appraisee.achievements.workshops.create')
@@ -85,5 +85,5 @@ Workshops/Meetings
       </div>
     </div>
 
-    
+
 @endsection
