@@ -100,7 +100,7 @@ Particulars
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#overview" data-toggle="tab">Account Details</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="" data-toggle="tab">Account Details</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">

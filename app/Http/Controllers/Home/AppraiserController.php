@@ -72,14 +72,19 @@ class AppraiserController extends Controller
 
         $score_result = 0;
         $key_results = Achievement::where('appraisee_id', $staff->staff_id)->get();
+        if ($key_results) {
+            toast('You cannot view this page now, The staff you are appraising has some missing data', 'warning');
+            return redirect()->back();
+        }else{
 
-        foreach ($key_results as $score) {
-            $score_result += $score->score;
-            $average_score = $score_result/count($key_results);
-            $average_achievement = ($average_score * 100) / 5;
+            foreach ($key_results as $score) {
+                $score_result += $score->score;
+                $average_score = $score_result/count($key_results);
+                $average_achievement = ($average_score * 100) / 5;
+            }
+            $achievements = Achievement::where('appraisee_id', $id)->get();
+            return view('appraiser.pages.achievement-assessment', compact('staff', 'title', 'achievements', 'average_achievement'));
         }
-        $achievements = Achievement::where('appraisee_id', $id)->get();
-        return view('appraiser.pages.achievement-assessment', compact('staff', 'title', 'achievements', 'average_achievement'));
     }
 
     public function updateAchievement(Request $request, $id)
@@ -151,12 +156,17 @@ class AppraiserController extends Controller
         $score_competence = 0;
 
         $score_level = CompetenceAssessment::where('appraisee_id', $staff->staff_id)->get();
-        foreach ($score_level as $score) {
-            $score_competence += $score->evaluation_outcome;
-            $average_competence = $score_competence/count($score_level);
-            $average_competence = ($average_competence * 100) / 5;
+        if ($score_level) {
+            toast('You cannot view this page now, The staff you are appraising has some missing data', 'warning');
+            return redirect()->back();
+        }else{
+            foreach ($score_level as $score) {
+                $score_competence += $score->evaluation_outcome;
+                $average_competence = $score_competence/count($score_level);
+                $average_competence = ($average_competence * 100) / 5;
+            }
+            return view('appraiser.pages.core-competence', compact('staff', 'competences', 'average_competence'));
         }
-        return view('appraiser.pages.core-competence', compact('staff', 'competences', 'average_competence'));
     }
 
     public function editCompetence(Request $request)
