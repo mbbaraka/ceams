@@ -22,12 +22,30 @@ use UserSeeder;
 
 class AppraiserController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Appraiser Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller hanldes what the appriaser can do once logged in the
+    | the system.
+    |
+    */
+
+    /**
+     * @author Baraka Mark Bright, Aikomo Joseph and Kyomuhendo Milliam
+     * This function lists the appriasess of a given appriaser logged in
+     */
     public function listAppraisee()
     {
         $staffs = User::where('appraiser_status', Auth::user()->staff_id)->where('status', '1')->latest()->paginate(5);
         return view('appraiser.pages.list', compact('staffs'));
     }
 
+    /**
+     * @author Baraka Mark Bright, Aikomo Joseph and Kyomuhendo Milliam
+     * This function is for the particulars of a given appraisee selected to view
+     */
     public function staff($id)
     {
         $staff = User::find($id);

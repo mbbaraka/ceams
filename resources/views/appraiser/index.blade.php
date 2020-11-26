@@ -35,7 +35,7 @@ Appraiser
                     </div>
                     <div class="col-md-3">
                       <div class="well dash-box">
-                        <h2><span class="fa fa-users" aria-hidden="true"></span> {{ $appraisees->count() }}</h2>
+                        <h2><span class="fa fa-users" aria-hidden="true"></span> {{ $notifications_count }}</h2>
                         <h4>Appraisees</h4>
                       </div>
                     </div>

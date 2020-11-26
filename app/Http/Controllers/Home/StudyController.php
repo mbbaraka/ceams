@@ -33,7 +33,7 @@ class StudyController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * @author Baraka Mark Bright
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

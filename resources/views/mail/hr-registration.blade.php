@@ -3,6 +3,8 @@
 
 You have been registered as a staff of Muni University by the Human resource office. You can now login to the system using the following credentials.
 <br>
+<strong>Please change the password after loging in to the portal</strong>
+<br>
 Email: {{ $email }}
 <br>
 Password: {{ $password }} <br>
