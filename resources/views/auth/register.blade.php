@@ -173,7 +173,8 @@ Register
            </div>
         </div>
       </div>
-      <div class="col-sm-12 d-md-none d-lg-none">
+    </div>
+    <div class="col-sm-12 d-md-none d-lg-none">
             <div style="border-radius: 40px; box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 40px 0 rgba(0, 0, 0, 0.19);" class="pt-2 pr-2 pl-2 bg-custom pb-1">
               <div class="card border-custom"  style="border-radius: 40px; border-top-right-radius: 40px;">
                 <div class="card-body">
@@ -325,8 +326,7 @@ Register
                 </div>
              </div>
             </div>
-          </div>
-    </div>
+      </div>
 
 </div>
 @endsection
