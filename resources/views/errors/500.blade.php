@@ -14,7 +14,7 @@
 }
 .error-heading{
     margin: 50px auto;
-    width: 250px;
+    width: 40%;
     border: 5px solid #fff;
     font-size: 126px;
     line-height: 126px;
@@ -36,7 +36,7 @@
 <body>
 	<div class="error-main">
 		<h1>Oops!</h1>
-		<div class="error-heading">400 | Server Error</div>
+		<div class="error-heading">500 | Server Error</div>
         <p>Some data might be missing. Please ensure that you complete some forms.</p>
         <br>
         <br>
