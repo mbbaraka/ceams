@@ -56,8 +56,8 @@ class StudyController extends Controller
         $save = $study->save();
 
         if ($save) {
-            Session::flash('message', 'New Study added successfully');
-            return redirect()->route('studies.index');
+            Alert::success('Success', 'Successfully added studies undertaken!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Study failed to be added');
             return redirect()->route('studies.index');
@@ -112,8 +112,8 @@ class StudyController extends Controller
         $save = $course->save();
 
         if ($save) {
-            Session::flash('message', 'Study updated successfully');
-            return redirect()->route('studies.index');
+            Alert::success('Success', 'Successfully updated course!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Study failed to update');
             return redirect()->route('studies.index');
@@ -131,8 +131,8 @@ class StudyController extends Controller
         $studies = Study::findOrFail($id);
 
         if ($studies->delete()) {
-            Session::flash('message', 'Deleted successfully');
-            return redirect()->route('studies.index');
+            Alert::success('Success', 'Successfully deleted study!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Failed to delete');
             return redirect()->route('studies.index');

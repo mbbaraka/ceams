@@ -54,8 +54,8 @@ class PublicationController extends Controller
         $save = $publication->save();
 
         if ($save) {
-            Session::flash('message', 'New Publication added successfully');
-            return redirect()->route('publications.index');
+            Alert::success('Success', 'Successfully added publication!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Publication failed to be added');
             return redirect()->route('publications.index');
@@ -108,8 +108,8 @@ class PublicationController extends Controller
         $save = $publication->save();
 
         if ($save) {
-            Session::flash('message', 'Publication updated successfully');
-            return redirect()->route('publications.index');
+            Alert::success('Success', 'Successfully updated publication!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Publication failed to be updated');
             return redirect()->route('publications.index');

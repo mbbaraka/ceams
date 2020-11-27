@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class LectureController extends Controller
@@ -57,11 +58,11 @@ class LectureController extends Controller
         $save = $lecture->save();
 
         if ($save) {
-            Session::flash('message', 'New public lecture added successfully');
-            return redirect()->route('lectures.index');
+            Alert::success('Success', 'Successfully added Lectures!');
+            return redirect()->back();
         }else{
-            Session::flash('error', 'Public Lecture failed to be added');
-            return redirect()->route('lectures.index');
+            Alert::warning('Error', 'An error occured!');
+            return redirect()->back();
         }
     }
 
@@ -113,11 +114,11 @@ class LectureController extends Controller
         $save = $lecture->save();
 
         if ($save) {
-            Session::flash('message', 'New public lecture added successfully');
-            return redirect()->route('lectures.index');
+            Alert::success('Success', 'Successfully updated Lectures held!');
+            return redirect()->back();
         }else{
-            Session::flash('error', 'Workshop failed to be added');
-            return redirect()->route('lectures.index');
+            Alert::warning('Error', 'An error occured!');
+            return redirect()->back();
         }
     }
 
@@ -131,11 +132,11 @@ class LectureController extends Controller
     {
         $lecture = PublicLecture::findOrFail($id);
         if ($lecture->delete()) {
-            Session::flash('message', 'Deleted successfully');
-            return redirect()->route('lectures.index');
+            Alert::success('Success', 'Successfully deleted Lectures held!');
+            return redirect()->back();
         }else{
-            Session::flash('error', 'Failed to delete');
-            return redirect()->route('lectures.index');
+            Alert::warning('Error', 'An error Occurred');
+            return redirect()->back();
         }
     }
 }

@@ -7,6 +7,7 @@ use App\Skills;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SkillController extends Controller
 {
@@ -40,7 +41,7 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [ 
+        $this->validate($request, [
             'skill' => 'required',
         ]);
 
@@ -51,8 +52,8 @@ class SkillController extends Controller
         $save = $skill->save();
 
         if ($save) {
-            Session::flash('message', 'New Skill added successfully');
-            return redirect()->route('skills.index');
+            Alert::success('Success', 'Successfully added skill');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Skill to be added');
             return redirect()->route('skills.index');
@@ -101,8 +102,8 @@ class SkillController extends Controller
         $save = $skill->save();
 
         if ($save) {
-            Session::flash('message', 'New Skill updated successfully');
-            return redirect()->route('skills.index');
+            Alert::success('Success', 'Successfully updated skill');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Skill to be updated');
             return redirect()->route('skills.index');
@@ -119,8 +120,8 @@ class SkillController extends Controller
     {
         $skills = Skills::findOrFail($id);
         if ($skills->delete()) {
-            Session::flash('message', 'Deleted successfully');
-            return redirect()->route('skills.index');
+            Alert::success('Success', 'Successfully deleted held!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Failed to delete');
             return redirect()->route('skills.index');

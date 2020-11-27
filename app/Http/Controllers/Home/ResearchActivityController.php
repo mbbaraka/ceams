@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ResearchActivityController extends Controller
 {
@@ -53,8 +53,8 @@ class ResearchActivityController extends Controller
         $save = $research->save();
 
         if ($save) {
-            Session::flash('message', 'New Research Activity added successfully');
-            return redirect()->route('researchactivities.index');
+            Alert::success('Success', 'Successfully added research activity!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Research Activity failed to be added');
             return redirect()->route('researchactivities.index');
@@ -105,8 +105,8 @@ class ResearchActivityController extends Controller
         $save = $research->save();
 
         if ($save) {
-            Session::flash('message', 'New Research Activity added successfully');
-            return redirect()->route('researchactivities.index');
+            Alert::success('Success', 'Successfully update research activity!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Research Activity failed to be added');
             return redirect()->route('researchactivities.index');
@@ -123,8 +123,8 @@ class ResearchActivityController extends Controller
     {
         $research = ResearchActivities::findOrFail($id);
         if ($research->delete()) {
-            Session::flash('message', 'Deleted successfully');
-            return redirect()->route('researchactivities.index');
+            Alert::success('Success', 'Successfully deleted research activity!');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Failed to delete');
             return redirect()->route('researchactivities.index');

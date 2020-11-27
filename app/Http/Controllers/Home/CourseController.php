@@ -7,6 +7,7 @@ use App\Courses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CourseController extends Controller
 {
@@ -54,11 +55,11 @@ class CourseController extends Controller
         $save = $course->save();
 
         if ($save) {
-            Session::flash('message', 'New Course added successfully');
-            return redirect()->route('courses.index');
+            Alert::success('Success', 'Successfully added Course!');
+            return redirect()->back();
         }else{
-            Session::flash('error', 'Study Course to be added');
-            return redirect()->route('courses.index');
+            Alert::warning('Error', 'An error occured!');
+            return redirect()->back();
         }
     }
 
@@ -108,11 +109,11 @@ class CourseController extends Controller
         $save = $course->save();
 
         if ($save) {
-            Session::flash('message', 'Course updated successfully');
-            return redirect()->route('courses.index');
+            Alert::success('Success', 'Successfully updated Course!');
+            return redirect()->back();
         }else{
-            Session::flash('error', 'Study Course failed to be updated');
-            return redirect()->route('courses.index');
+            Alert::warning('Error', 'An error occured!');
+            return redirect()->back();
         }
     }
 
@@ -126,11 +127,11 @@ class CourseController extends Controller
     {
         $course = Courses::findOrFail($id);
         if ($course->delete()) {
-            Session::flash('message', 'Deleted successfully');
-            return redirect()->route('courses.index');
+            Alert::success('Success', 'Successfully deleted course held!');
+            return redirect()->back();
         }else{
-            Session::flash('error', 'Failed to delete');
-            return redirect()->route('courses.index');
+            Alert::warning('Error', 'An error occured!');
+            return redirect()->back();
         }
     }
 }
