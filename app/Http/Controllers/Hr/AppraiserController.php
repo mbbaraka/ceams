@@ -44,7 +44,7 @@ class AppraiserController extends Controller
     {
         // Deassign appraiser status from staff
         $staff = User::findOrFail($id);
-        $staff->is_appraiser = '0';
+        $staff->is_appraiser = NULL;
         $save = $staff->save();
         if ($save) {
             Alert::success('success', 'Staff de-assigned successfully');

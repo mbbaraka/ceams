@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('appraisals.app')
 
 @section('title')
 Appraisal Form
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container pt-5">
     <div class="row">
       <div class="col-md-12">
           <!-- Latest Users -->
@@ -13,7 +13,10 @@ Appraisal Form
           <div class="card-header pt-1 pb-1">
             <h3 class="card-title text-custom">
                 Staff Appraisal Form
-                <a target="_blank" href="{{ route('print') }}" class="btn btn-sm btn-primary float-right"><span class="fa fa-print"></span> Print Form</a>
+                <div class="btn-group float-right">
+                    {{-- <a href="#" onclick = "goback()" class="btn btn-sm btn-primary"><span class="fa fa-times"></span> Back</a> --}}
+                    <a target="_blank" href="{{ route('print') }}" class="btn btn-sm btn-primary"><span class="fa fa-print"></span> Print Form</a>
+                </div>
             </h3>
           </div>
           <div class="card-body">
@@ -79,7 +82,7 @@ Appraisal Form
                             <td>{{ $staff->appraiser->name }}</td>
                           </tr>
                           <tr>
-                            <td width="30%">Job Title/Rank :</td>
+                            <td width="30%">JJob Title/Rank :</td>
                             <td>{{ $staff->appraiser->job_title }}</td>
                           </tr>
                           <tr>
@@ -92,27 +95,45 @@ Appraisal Form
              <br><br>
               <strong>2.0 ACHIEVEMENTS OF ACADEMIC STAFF IN YEAR UNDER REVIEW</strong>
               <br>
-              <strong>PART A: Studies Undertaken </strong>
-              <table class="table table-responsive-sm">
-                  <thead>
-                      <tr>
-                          <th>#</th>
-                          <th>Course</th>
-                          <th>Institution</th>
-                          <th>Expected Award</th>
-                          <th>Date of Completion</th>
+              @if (empty($study))
+                <strong>Studies Undertaken </strong>
+                <table class="table table-striped table-hover table-responsive-sm">
+                    <tr>
+                    <th>Course</th>
+                    <th>Institution</th>
+                    <th>Award</th>
+                    <th>Date of Completetion</th>
+                    </tr>
+                    @foreach($study as $key => $studies)
+                    <tr>
+                        <td>{{ $key + 1 }}</td>
+                        <td>{{ $studies->courses }}</td>
+                        <td>{{ $studies->institution }}</td>
+                        <td>{{ $studies->award }}</td>
+                        <td>{{ date('d/M/Y', strtotime($studies->date_of_completion))}}</td>
+
+                    @endforeach
+                </table>
+              @endif
+              @if (empty($course))
+                <strong>Courses Undertaken </strong>
+                <table class="table table-striped table-hover table-responsive-sm">
+                    <tr>
+                        <th>Program</th>
+                        <th>CU</th>
+                        <th>CH</th>
                       </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>IT Essentials</td>
-                          <td>Muni University</td>
-                          <td>Certificate</td>
-                          <td>20/April/2020</td>
-                      </tr>
-                  </tbody>
-              </table>
+                      @foreach($course as $key => $courses)
+                        <tr>
+                          <td>{{ $key + 1}}</td>
+                          <td>{{ $courses->program }}</td>
+                          <td>{{ $courses->course_unit }}</td>
+                          <td>{{ $courses->contact_hours }}</td>
+
+                      @endforeach
+                    </table>
+                </table>
+              @endif
               <br><br><br>
               <h4>SECTION B: ASSESSMENT OF THE LEVEL OF ACHIEVEMENT OF AGREED OUTPUTS AND TARGETS</h4>
               <table class="table table-responsive-sm">

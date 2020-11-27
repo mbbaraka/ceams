@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Achievement;
+use App\ActionPlan;
 use App\Competence;
 use App\CompetenceAssessment;
 use App\Courses;
@@ -69,13 +70,13 @@ class AppraiserController extends Controller
     {
         $staff = User::find($id);
         $title = Jobs::where('title', $staff->job_title)->first();
-
+        $average_achievement = 0;
         $score_result = 0;
         $key_results = Achievement::where('appraisee_id', $staff->staff_id)->get();
-        if ($key_results) {
-            toast('You cannot view this page now, The staff you are appraising has some missing data', 'warning');
-            return redirect()->back();
-        }else{
+        // if (!$key_results) {
+        //     toast('You cannot view this page now, The staff you are appraising has some missing data', 'warning');
+        //     return redirect()->back();
+        // }else{
 
             foreach ($key_results as $score) {
                 $score_result += $score->score;
@@ -84,7 +85,7 @@ class AppraiserController extends Controller
             }
             $achievements = Achievement::where('appraisee_id', $id)->get();
             return view('appraiser.pages.achievement-assessment', compact('staff', 'title', 'achievements', 'average_achievement'));
-        }
+        // }
     }
 
     public function updateAchievement(Request $request, $id)
@@ -154,9 +155,10 @@ class AppraiserController extends Controller
         $staff = User::find($id);
         $competences = Competence::paginate(5);
         $score_competence = 0;
+        $average_competence = 0;
 
-        $score_level = CompetenceAssessment::where('appraisee_id', $staff->staff_id)->get();
-        if ($score_level) {
+        $score_level = CompetenceAssessment::where('appraisee_id', $id)->get();
+        if (!$score_level) {
             toast('You cannot view this page now, The staff you are appraising has some missing data', 'warning');
             return redirect()->back();
         }else{
@@ -197,6 +199,8 @@ class AppraiserController extends Controller
         $score_result = 0;
         $score_competence = 0;
         $key_results = Achievement::where('appraisee_id', $staffs)->get();
+        $average_score = 0;
+        $average_competence = 0;
 
         foreach ($key_results as $score) {
             $score_result += $score->score;
@@ -255,10 +259,11 @@ class AppraiserController extends Controller
 
 
     // Performance Improvement Action Plan
-    public function actionPlan($staff)
+    public function actionPlan($id)
     {
-        $staff = User::find($staff);
-        return view('appraiser.pages.action-plan', compact('staff'));
+        $staff = User::find($id);
+        $actions = ActionPlan::where('appraisee_id', $id)->where('appraiser_id', Auth::user()->staff_id)->paginate(3);
+        return view('appraiser.pages.action-plan', compact('staff', 'actions'));
     }
 
     public function particulars($staff)

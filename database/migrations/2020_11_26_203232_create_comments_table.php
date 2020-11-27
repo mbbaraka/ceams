@@ -17,13 +17,15 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->string('appraisee_id')->nullable();
             $table->string('appraiser_id')->nullable();
-            $table->string('appraiser_comment')->nullable();
+            $table->text('appraiser_comment')->nullable();
             $table->string('date_appraiser_comment')->nullable();
-            $table->string('dean_comment')->nullable();
+            $table->text('hod_comment')->nullable();
+            $table->string('date_hod_comment')->nullable();
+            $table->text('dean_comment')->nullable();
             $table->string('date_dean_comment')->nullable();
-            $table->string('us_comment')->nullable();
+            $table->text('us_comment')->nullable();
             $table->string('date_us_comment')->nullable();
-            $table->string('vc_comment')->nullable();
+            $table->text('vc_comment')->nullable();
             $table->string('date_vc_comment')->nullable();
             $table->timestamps();
 

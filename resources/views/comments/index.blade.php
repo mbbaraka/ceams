@@ -16,31 +16,6 @@ Comment on Appraisals
         </div>
       </div>
       <div class="col-md-8">
-        <!-- Website Overview -->
-        {{-- <div class="card mb-3 shadow">
-          <div class="card-header border-custom pt-1 pb-1">
-            <h3 class="card-title text-custom">Create New Job Title</h3>
-          </div>
-          <div class="card-body border-custom">
-            <form class="form-horizontal" action="{{ route('hr.jobs.store') }}" method="POST">
-                @csrf
-                <div class="form-group row">
-                    <div class="col-sm-8">
-                      <input type="text" name="title" placeholder="Job Title" class="form-control @error('title') is-invalid @enderror" id="role">
-                      @error('title')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    </div>
-                </div>
-            </form>
-          </div>
-        </div> --}}
-
           <!-- Latest Users -->
         <div class="card shadow">
           <div class="card-header border-custom pt-1 pb-1">
@@ -64,7 +39,7 @@ Comment on Appraisals
                     <td>{{ $staff->faculty }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a href="{{ route('appraisal.view', $staff->staff_id) }}" title="Vew" class="btn btn-light"><span class="fa fa-eye text-dark"></span></a>
+                            <a target="_blank" href="{{ route('appraisal.view', $staff->staff_id) }}" title="Vew" class="btn btn-light"><span class="fa fa-eye text-dark"></span></a>
                             <a href="#comment{{$staff->staff_id}}" data-toggle="modal"  title="Comment" class="btn btn-light"><span class="fa fa-comment text-dark"></span></a>
                         </div>
 
@@ -78,8 +53,10 @@ Comment on Appraisals
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                     </div>
-                                    <form action="">
+                                    <form action="{{ route('comments.store') }}" method="POST">
+                                        @csrf
                                         <div class="modal-body">
+                                            <input type="hidden" name="id" value="{{ $staff->staff_id }}">
                                             <div class="form-group">
                                               <label for="">Comment</label>
                                                 <textarea class="form-control @error('comment') is-invalid @enderror" name="comment" id="" rows="3"></textarea>
@@ -90,7 +67,7 @@ Comment on Appraisals
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
                                         </div>
                                     </form>
                                 </div>

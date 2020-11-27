@@ -85,7 +85,7 @@
                                                   </p>
                                                 </div>
                                                 <div class="form-group">
-                                                  <label for="description">Performance Target</label>
+                                                  <label for="description">Performance Indicators</label>
                                                     <p class="text-muted">
                                                     @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
                                                         {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->performance_indicators }}
@@ -140,7 +140,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                   <label for="indicator">Performance Indicators</label>
-                                                  <textarea name="indicator" id="indicator" cols="30" rows="5" class="@error('indicator') is-invalid @enderror form-control">@if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)){{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->performance_indicators }}@else Not yet added. @endif</textarea>
+                                                  <textarea name="indicator" id="indicator" cols="30" rows="5" class="@error('indicator') is-invalid @enderror form-control">@if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)){{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->performance_indicators }} @endif</textarea>
                                                   @error('indicator')
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>
@@ -151,7 +151,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                   <label for="target">Performance Targets</label>
-                                                  <textarea name="target" id="target" cols="30" rows="5" class="@error('target') is-invalid @enderror form-control">@if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)){{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }}@else Not yet added. @endif</textarea>
+                                                  <textarea name="target" id="target" cols="30" rows="5" class="@error('target') is-invalid @enderror form-control">@if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)){{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }} @endif</textarea>
                                                   @error('target')
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>

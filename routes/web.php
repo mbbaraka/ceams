@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
-
+use phpDocumentor\Reflection\Types\Resource_;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
     Route::post('/appraiser/{id}/update', 'AppraiserController@updateAchievement')->name('achievements-assessment.update');
     Route::get('/appraiser/{id}/reject/{staff}', 'AppraiserController@rejectAchievement')->name('achievements-assessment.reject');
     Route::get('/appraiser/{id}/approve/{staff}', 'AppraiserController@approveAchievement')->name('achievements-assessment.approve');
- 
+
     Route::get('/appraiser/{id}/core-competences', 'AppraiserController@coreCompetence')->name('core-competences');
     Route::post('/appraiser/core-competence/store', 'AppraiserController@editCompetence')->name('store.core-competences');
 
@@ -86,6 +86,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth', 'namespace' => 'Home'], f
 
     // Comments
     Route::get('/comments', 'CommentController@index')->name('comments.index');
+    Route::post('/comments/store', 'CommentController@store')->name('comments.store');
 
     // Appraisals
     Route::get('/appraisal-form', 'AppraisalController@index')->name('appraisal.index');
@@ -158,6 +159,7 @@ Route::group(['prefix' => '/hr', 'middleware' => 'can:isHR, hr', 'namespace' => 
 //Appraiser routes
 Route::group(['prefix' => '/appraiser', 'middleware' => 'can:isAppraiser, 1', 'namespace' => 'Appraiser'], function (){
     Route::get('/', 'HomeController@index')->name('appraiser.index');
+    Route::resource('action-plan', 'ActionPlanController');
     // Route::get('/jobs', 'PageController@jobs')->name('hr.jobs');
     // Route::get('/staffs', 'PageController@staffs')->name('hr.staffs');
     // Route::get('/appraisers', 'PageController@appraisers')->name('hr.appraisers');

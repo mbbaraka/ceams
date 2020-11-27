@@ -79,11 +79,11 @@ Appraisal Form
                             <td>{{ Auth::user()->appraiser->name }}</td>
                           </tr>
                           <tr>
-                            <td width="30%">Job Title/Rank :</td>
+                            <td width="30%">Supervisor Job Title/Rank :</td>
                             <td>{{ Auth::user()->appraiser->job_title }}</td>
                           </tr>
                           <tr>
-                            <td width="30%">Salary Scale :</td>
+                            <td width="30%">Supervisor Salary Scale :</td>
                             <td>{{ Auth::user()->appraiser->salary_scale }}</td>
                           </tr>
                       </tbody>

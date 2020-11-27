@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CEAMS | Appraiser | @yield('title') </title>
+    <title>CEAMS | @yield('title') </title>
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Custom css -->
@@ -16,9 +16,6 @@
   <body>
     @include('sweetalert::alert')
 
-    @include('appraiser.partials.nav')
-
-    @include('appraiser.partials.breadcrub')
     <section id="main">
       @yield('content')
     </section>
@@ -41,11 +38,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
-    <script>
-        // Tooltip & popovers
-    $('[data-toggle="tooltip"]').tooltip();
-    $('[data-toggle="popover"]').popover();
-    </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
     </section>
 
     <footer id="footer">
-      <p>Copyright Ceams, &copy; {{ date('Y') }}</p>
+      <p>Copyright <a class="text-light" href="{{ url('/') }}">Ceams</a> &copy; {{ date('Y') }}</p>
     </footer>
 
     <!-- Modals -->

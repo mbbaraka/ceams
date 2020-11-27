@@ -56,9 +56,9 @@ Studies Undertaken
                           </div>
                         </div>
                         </tr>
-                        
+
                       @endforeach
-                    </table>
+                </table>
               </div>
               </div>
 
@@ -85,5 +85,5 @@ Studies Undertaken
       </div>
     </div>
 
-    
+
 @endsection

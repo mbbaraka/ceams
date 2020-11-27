@@ -25,7 +25,7 @@
     </section>
 
     <footer id="footer">
-      <p>Copyright Ceams, &copy; {{ date('Y') }}</p>
+       <p>Copyright <a href="{{ url('/') }}">Ceams</a> &copy; {{ date('Y') }}</p>
     </footer>
 
     <!-- Modals -->

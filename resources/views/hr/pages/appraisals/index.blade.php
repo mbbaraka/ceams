@@ -40,10 +40,10 @@ Home
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $staff->name }}</td>
                         <td>{{ $staff->department }}</td>
-                        <td>{{ $staff->staffAppraiser->name }}</td>
+                        <td>{{ $staff->name }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{{ route('hr.appraiser.appraisees', $staff->staff_id) }}"><button title="View Appraisal" class="btn btn-light"><span class="fa fa-eye"></span></button></a>
+                                <a target="_blank" href="{{ route('appraisal.view', $staff->staff_id) }}"><button title="View Appraisal" class="btn btn-light"><span class="fa fa-eye"></span></button></a>
                             </div>
                         </td>
                     </tr>
