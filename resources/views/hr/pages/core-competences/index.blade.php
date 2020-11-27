@@ -39,7 +39,7 @@ Core Competences
                     <td>
                         <div class="btn-group" role="group">
                             <button title="Edit" data-toggle='modal' data-target="#edit{{ $competence->id }}" class="btn btn-light"><span class="fa fa-edit text-dark"></span></button>
-                            <button onclick="confirm('Are you sure of thiss?')" class="btn btn-light"><a href="{{ route('hr.core-competences.delete', $competence->id) }}" title="Delete Job title"><span class="fa fa-times-circle text-primary"></span></a></button>
+                            <button onclick="confirm('Are you sure of this?')" class="btn btn-light"><a href="{{ route('hr.core-competences.delete', $competence->id) }}" title="Delete Job title"><span class="fa fa-times-circle text-primary"></span></a></button>
                         </div>
 
                         <!-- Modal -->
