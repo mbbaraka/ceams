@@ -49,7 +49,7 @@
                       </td>
                       <td width="40%;">
                         @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id))
-                            {{ Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level }}
+                            {{ Str::limit(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->min_performance_level, 100, '...') }}
                             @if (Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "pending")
                             <span class="float-right badge badge-primary">Pending</span>
                             @elseif(Ceams::achievement($descriptions->id, Auth::user()->staff_id)->status == "rejected")

@@ -62,7 +62,20 @@ Achivement Assessment
                     <tr>
                       <td>{{ $key +1 }}</td>
                       <td>{!! $achievement->description->description !!}</td>
-                      <td>How will results be achieved</td>
+                      <td>
+                        @if ($achievement->performance_indicators != NULL)
+                            <span>{{ $achievement->performance_indicators }}</span>
+                            @if($achievement->status == 'pending')
+                                <span class="badge badge-primary">pending</span>
+                            @elseif($achievement->status == 'approved')
+                                <span class="badge badge-success">approved</span>
+                            @elseif($achievement->status == 'rejected')
+                                <span class="badge badge-danger">rejected</span>
+                            @endif
+                        @else
+                            <span>Not added yet</span>
+                        @endif
+                      </td>
                       <td>
                         @if ($achievement->min_performance_level != NULL)
                             <span>{{ $achievement->min_performance_level }}</span>
@@ -101,9 +114,13 @@ Achivement Assessment
                                                   </p>
                                                 </div>
                                                 <div class="form-group">
-                                                  <label for="description">Job Description</label>
+                                                  <label for="description">Performance Indicator</label>
                                                   <p class="text-muted">
-                                                      {!! $achievement->description->description !!}
+                                                    @if ($achievement->performance_indicators != NULL)
+                                                        <span>{{ $achievement->performance_indicators }}</span>
+                                                    @else
+                                                        <span>Not added yet</span>
+                                                    @endif
                                                   </p>
                                                 </div>
                                                 <div class="form-group">
