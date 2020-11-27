@@ -218,7 +218,7 @@ Recommendations
                     @foreach ($recommendations as $item)
                         <span class="badge badge-info">
                             {{ $item->recommendation }} &nbsp;
-                            <a href="{{ route('recommendations.remove', $item->id ) }}" onclick="confirm('Are you sure to remove this?')"><i class="text-dark fa fa-times-circle"></i></a>
+                            <a type="button" href="{{ route('recommendations.remove', $item->id ) }}"><i class="text-dark fa fa-times-circle"></i></a>
                         </span>
                     @endforeach
                 @else

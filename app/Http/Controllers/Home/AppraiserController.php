@@ -228,13 +228,16 @@ class AppraiserController extends Controller
     public function storeRecommendation(Request $request, $staff)
     {
         $recommendations = $request->reward;
-        if ($request->reward > 0) {
-            foreach ($request->reward as $item) {
-                $recommend = new Recommendation();
-                $recommend->appraisee_id = $staff;
-                $recommend->appraiser_id = Auth::user()->staff_id;
-                $recommend->recommendation = $item;
-                $save = $recommend->save();
+        if(isset($request->reward)){
+            if ($request->reward > 0) {
+                foreach ($request->reward as $item) {
+                    $recommend = new Recommendation();
+                    $recommend->appraisee_id = $staff;
+                    $recommend->appraiser_id = Auth::user()->staff_id;
+                    $recommend->recommendation = $item;
+                    $save = $recommend->save();
+
+                }
 
                 if ($save) {
                     Alert::success('Success', 'Staff recommended successfully!');
@@ -242,7 +245,6 @@ class AppraiserController extends Controller
                 }
 
             }
-
         }
     }
 
