@@ -41,7 +41,6 @@ Home
                     <td>
                         <div class="btn-group" role="group">
                             <a href="#"><button title="View Profile" class="btn btn-light"><span class="fa fa-eye text-dark"></span></button></a>
-                            <a href="#modal{{$role->staff_id}}" title="De-assign" class="btn btn-light" data-toggle="modal" data-target="#modal{{$role->staff_id}}"><span class="fa fa-edit text-primary"></span></a>
 
                             {!! Form::open(['route' => ['courses.destroy', $role->staff_id], 'method' => 'delete', 'style' => 'display:inline']) !!}
                               <button title="Delete" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-light"><span class="fa fa-trash text-danger"></span></button>

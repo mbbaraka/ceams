@@ -38,8 +38,49 @@ Core Competences
                     <td>{{ $competence->description }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a href="{{ route('hr.core-competences.update', $competence->id) }}"><button title="Edit" data-toggle='tooltip' class="btn btn-light"><span class="fa fa-edit text-dark"></span></button></a>
-                            <a onclick="confirm('Are you sure of this?')" href="{{ route('hr.core-competences.update', $competence->id) }}" title="Delete Job title" class="btn btn-light"><span class="fa fa-times-circle text-primary"></span></a>
+                            <button title="Edit" data-toggle='modal' data-target="#edit{{ $competence->id }}" class="btn btn-light"><span class="fa fa-edit text-dark"></span></button>
+                            <button onclick="confirm('Are you sure of this?')" class="btn btn-light"><a href="{{ route('hr.core-competences.delete', $competence->id) }}" title="Delete Job title"><span class="fa fa-times-circle text-primary"></span></a></button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="edit{{ $competence->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                    <form action="{{ route('hr.core-competences.update', $competence->id) }}" method="POST">
+                                        @csrf
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="">Competence</label>
+                                            <input type="text" name="competence" value="{{ $competence->competence }}" id="" class="form-control @error('title') is-invalid @enderror" placeholder="Core Competence" aria-describedby="helpId">
+                                            @error('competence')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                            @enderror
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="">Description</label>
+                                              <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="" cols="30" rows="3">{{ $competence->description }}</textarea>
+                                              @error('description')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                            @enderror
+                                          </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </td>
                     </tr>

@@ -44,7 +44,7 @@ Home
                         <td>
                             <div class="btn-group" role="group">
                                 <a href="{{ route('hr.appraiser.appraisees', $staff->staff_id) }}"><button title="Manage Appraisees" class="btn btn-light"><span class="fa fa-tasks"></span></button></a>
-                                <a href="{{ route('hr.appraiser.delete', $staff->staff_id) }}" title="De-assign" class="btn btn-light""><span class="fa fa-times-circle"></span></a>
+                                <button onclick="confirm('Are you sure of this?')" class="btn btn-light"><a href="{{ route('hr.appraiser.delete', $staff->staff_id) }}" title="De-assign"><span class="fa fa-times-circle text-primary"></span></a></button>
                             </div>
                         </td>
                     </tr>

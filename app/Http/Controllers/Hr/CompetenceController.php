@@ -37,13 +37,36 @@ class CompetenceController extends Controller
         }
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
+        $this->validate($request,
+        [
+            'competence' => 'required',
+            'description' => 'required|min:30',
+        ]
+        );
 
+        $competence = Competence::find($id);
+        $competence->competence = $request->competence;
+        $competence->description = $request->description;
+
+        $save = $competence->save();
+
+        if ($save) {
+            Alert::success('Updated', 'Successfully updated Core Competence');
+            return redirect()->back();
+        }
     }
 
-    public function delete()
+    public function delete($id)
     {
+        $core = Competence::find($id);
 
+        $delete = $core->delete();
+
+        if ($delete) {
+            Alert::success('Deleted', 'Successfully deleted Core Competence');
+            return redirect()->back();
+        }
     }
 }
