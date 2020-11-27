@@ -108,7 +108,7 @@ Achivement Assessment
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                  <label for="description">Job Description/Key Output</label>
+                                                  <label for="description"><strong>Job Description/Key Output</strong></label>
                                                   <p class="text-muted">
                                                       {!! $achievement->description->description !!}
                                                   </p>
@@ -171,7 +171,7 @@ Achivement Assessment
                                                           </div>
                                                           <div class="form-group">
                                                             <label for="">Comment on Performance</label><br>
-                                                            <textarea name="comment" id="" cols="30" class="form-control @error('comment') @enderror" rows="3">{{ $achievement->comment }}</textarea>
+                                                            <textarea name="comment" id="" cols="30" class="form-control @error('comment') is-invalid @enderror" rows="3">{{ $achievement->comment }}</textarea>
                                                             @error('comment')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
